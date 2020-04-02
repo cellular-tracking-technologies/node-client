@@ -23,49 +23,121 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NodeClient));
             this.tabControlMain = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tabPageUsb = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonOpenPort1 = new System.Windows.Forms.Button();
             this.comboBoxBaud1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxPort1 = new System.Windows.Forms.ComboBox();
+            this.buttonOpenPort2 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.comboBoxBaud2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPort1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxHandshake = new System.Windows.Forms.ComboBox();
+            this.checkBoxDtr = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxPort2 = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.buttonUpdatePorts = new System.Windows.Forms.Button();
+            this.tabPageConsole = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridDeviceInfo = new System.Windows.Forms.DataGridView();
+            this.ColumnInfoType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInfoValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridSettings = new System.Windows.Forms.DataGridView();
+            this.ColumnSetting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSettingValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridDetections = new System.Windows.Forms.DataGridView();
+            this.tabPageHealth = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
+            this.dgvReceiver = new System.Windows.Forms.DataGridView();
+            this.RxNodeSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxLastHealth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxRssiAvg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxFirmware = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxBattery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxBatteryChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxSolarV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxFixAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxFixLat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxFixLon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RxBeepCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPageHelp = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.tabPageUpload = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tabPageAbout = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.linkLabelCompany = new System.Windows.Forms.LinkLabel();
+            this.linkLabelContribute = new System.Windows.Forms.LinkLabel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.labelProduct = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.ColumnDetectionTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTagId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTagRssi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelCompany = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tabPageUsb.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tabPage5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tabPageConsole.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDeviceInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).BeginInit();
+            this.tabPageHealth.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiver)).BeginInit();
+            this.tabPageHelp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPageUpload.SuspendLayout();
+            this.tabPageAbout.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
             // 
             this.tabControlMain.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabControlMain.Controls.Add(this.tabPage1);
-            this.tabControlMain.Controls.Add(this.tabPage2);
-            this.tabControlMain.Controls.Add(this.tabPage3);
-            this.tabControlMain.Controls.Add(this.tabPage4);
-            this.tabControlMain.Controls.Add(this.tabPage5);
+            this.tabControlMain.Controls.Add(this.tabPageUsb);
+            this.tabControlMain.Controls.Add(this.tabPageConsole);
+            this.tabControlMain.Controls.Add(this.tabPageHealth);
+            this.tabControlMain.Controls.Add(this.tabPageHelp);
+            this.tabControlMain.Controls.Add(this.tabPageUpload);
+            this.tabControlMain.Controls.Add(this.tabPageAbout);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControlMain.ItemSize = new System.Drawing.Size(50, 100);
@@ -74,154 +146,78 @@
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(942, 537);
+            this.tabControlMain.Size = new System.Drawing.Size(1118, 537);
             this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlMain.TabIndex = 0;
-            this.tabControlMain.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControlMain_DrawItem);
+            this.tabControlMain.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControlDrawItem);
             // 
-            // tabPage1
+            // tabPageUsb
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.tabPage1.Location = new System.Drawing.Point(104, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(834, 529);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "USB";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(6, 141);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(225, 129);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Wireless USB";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(7, 20);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 94);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "115200",
-            "57600",
-            "9600",
-            "4800"});
-            this.comboBox1.Location = new System.Drawing.Point(53, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.button1, 2);
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(3, 65);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 26);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Open";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(4, 38);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Baud";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(53, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(144, 21);
-            this.comboBox2.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(5, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "COM";
+            this.tabPageUsb.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageUsb.Controls.Add(this.groupBox1);
+            this.tabPageUsb.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tabPageUsb.Location = new System.Drawing.Point(104, 4);
+            this.tabPageUsb.Name = "tabPageUsb";
+            this.tabPageUsb.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUsb.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageUsb.TabIndex = 0;
+            this.tabPageUsb.Text = "USB";
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel4);
+            this.groupBox1.Controls.Add(this.buttonUpdatePorts);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox1.Location = new System.Drawing.Point(330, 114);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(225, 129);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.Size = new System.Drawing.Size(338, 290);
+            this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Console USB";
+            this.groupBox1.Text = "Settings";
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel4
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxBaud1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonOpenPort1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxPort1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 20);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 94);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel4.Controls.Add(this.buttonOpenPort1, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxBaud1, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.buttonOpenPort2, 2, 5);
+            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 4);
+            this.tableLayoutPanel4.Controls.Add(this.label17, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label5, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxBaud2, 2, 2);
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxPort1, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxHandshake, 2, 3);
+            this.tableLayoutPanel4.Controls.Add(this.checkBoxDtr, 2, 4);
+            this.tableLayoutPanel4.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxPort2, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label18, 2, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(20, 19);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 6;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66733F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66733F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66733F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66567F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66567F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(297, 191);
+            this.tableLayoutPanel4.TabIndex = 8;
             // 
             // buttonOpenPort1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.buttonOpenPort1, 2);
             this.buttonOpenPort1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonOpenPort1.Location = new System.Drawing.Point(3, 65);
+            this.buttonOpenPort1.Location = new System.Drawing.Point(101, 158);
             this.buttonOpenPort1.Name = "buttonOpenPort1";
-            this.buttonOpenPort1.Size = new System.Drawing.Size(194, 26);
+            this.buttonOpenPort1.Size = new System.Drawing.Size(93, 26);
             this.buttonOpenPort1.TabIndex = 2;
             this.buttonOpenPort1.Text = "Open";
             this.buttonOpenPort1.UseVisualStyleBackColor = true;
+            this.buttonOpenPort1.Click += new System.EventHandler(this.ButtonOpenPort1_Click);
             // 
             // comboBoxBaud1
             // 
@@ -232,31 +228,57 @@
             "57600",
             "9600",
             "4800"});
-            this.comboBoxBaud1.Location = new System.Drawing.Point(53, 34);
+            this.comboBoxBaud1.Location = new System.Drawing.Point(101, 65);
             this.comboBoxBaud1.Name = "comboBoxBaud1";
-            this.comboBoxBaud1.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxBaud1.Size = new System.Drawing.Size(93, 24);
             this.comboBoxBaud1.TabIndex = 1;
             // 
-            // label2
+            // buttonOpenPort2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(4, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Baud";
+            this.buttonOpenPort2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonOpenPort2.Location = new System.Drawing.Point(200, 158);
+            this.buttonOpenPort2.Name = "buttonOpenPort2";
+            this.buttonOpenPort2.Size = new System.Drawing.Size(94, 24);
+            this.buttonOpenPort2.TabIndex = 2;
+            this.buttonOpenPort2.Text = "Open";
+            this.buttonOpenPort2.UseVisualStyleBackColor = true;
+            this.buttonOpenPort2.Click += new System.EventHandler(this.ButtonOpenPort2_Click);
             // 
-            // comboBoxPort1
+            // label6
             // 
-            this.comboBoxPort1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPort1.FormattingEnabled = true;
-            this.comboBoxPort1.Location = new System.Drawing.Point(53, 3);
-            this.comboBoxPort1.Name = "comboBoxPort1";
-            this.comboBoxPort1.Size = new System.Drawing.Size(144, 21);
-            this.comboBoxPort1.TabIndex = 0;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(30, 131);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 17);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "DTR";
+            // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label17.Location = new System.Drawing.Point(126, 7);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 17);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Node";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(27, 100);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 17);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "CTRL";
             // 
             // label1
             // 
@@ -264,127 +286,822 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(5, 7);
+            this.label1.Location = new System.Drawing.Point(29, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "COM";
             // 
-            // tabPage2
+            // comboBoxBaud2
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Location = new System.Drawing.Point(104, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(834, 529);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Console";
+            this.comboBoxBaud2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBaud2.FormattingEnabled = true;
+            this.comboBoxBaud2.Items.AddRange(new object[] {
+            "115200",
+            "57600",
+            "9600",
+            "4800"});
+            this.comboBoxBaud2.Location = new System.Drawing.Point(200, 65);
+            this.comboBoxBaud2.Name = "comboBoxBaud2";
+            this.comboBoxBaud2.Size = new System.Drawing.Size(94, 24);
+            this.comboBoxBaud2.TabIndex = 1;
             // 
-            // tabPage3
+            // comboBoxPort1
             // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Location = new System.Drawing.Point(104, 4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(834, 529);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Wireless";
+            this.comboBoxPort1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPort1.FormattingEnabled = true;
+            this.comboBoxPort1.Location = new System.Drawing.Point(101, 34);
+            this.comboBoxPort1.Name = "comboBoxPort1";
+            this.comboBoxPort1.Size = new System.Drawing.Size(93, 24);
+            this.comboBoxPort1.TabIndex = 0;
             // 
-            // tabPage4
+            // comboBoxHandshake
             // 
-            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage4.Location = new System.Drawing.Point(104, 4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(834, 529);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "About";
+            this.comboBoxHandshake.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHandshake.FormattingEnabled = true;
+            this.comboBoxHandshake.Items.AddRange(new object[] {
+            "115200",
+            "57600",
+            "9600",
+            "4800"});
+            this.comboBoxHandshake.Location = new System.Drawing.Point(200, 96);
+            this.comboBoxHandshake.Name = "comboBoxHandshake";
+            this.comboBoxHandshake.Size = new System.Drawing.Size(94, 24);
+            this.comboBoxHandshake.TabIndex = 5;
             // 
-            // tabPage5
+            // checkBoxDtr
             // 
-            this.tabPage5.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage5.Controls.Add(this.button3);
-            this.tabPage5.Controls.Add(this.button2);
-            this.tabPage5.Controls.Add(this.textBox1);
-            this.tabPage5.Controls.Add(this.pictureBox1);
-            this.tabPage5.Controls.Add(this.comboBox3);
-            this.tabPage5.Location = new System.Drawing.Point(104, 4);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(834, 529);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Help";
+            this.checkBoxDtr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBoxDtr.AutoSize = true;
+            this.checkBoxDtr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxDtr.Location = new System.Drawing.Point(219, 129);
+            this.checkBoxDtr.Name = "checkBoxDtr";
+            this.checkBoxDtr.Size = new System.Drawing.Size(56, 21);
+            this.checkBoxDtr.TabIndex = 9;
+            this.checkBoxDtr.Text = "High";
+            this.checkBoxDtr.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // label2
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(21, 495);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(796, 21);
-            this.comboBox3.TabIndex = 0;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(28, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Baud";
             // 
-            // pictureBox1
+            // comboBoxPort2
             // 
-            this.pictureBox1.Image = global::node_client.Properties.Resources.find_device_manager;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(796, 400);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.comboBoxPort2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPort2.FormattingEnabled = true;
+            this.comboBoxPort2.Location = new System.Drawing.Point(200, 34);
+            this.comboBoxPort2.Name = "comboBoxPort2";
+            this.comboBoxPort2.Size = new System.Drawing.Size(94, 24);
+            this.comboBoxPort2.TabIndex = 0;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label18.Location = new System.Drawing.Point(205, 7);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(83, 17);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "Transceiver";
+            // 
+            // buttonUpdatePorts
+            // 
+            this.buttonUpdatePorts.Location = new System.Drawing.Point(20, 216);
+            this.buttonUpdatePorts.Name = "buttonUpdatePorts";
+            this.buttonUpdatePorts.Size = new System.Drawing.Size(297, 53);
+            this.buttonUpdatePorts.TabIndex = 7;
+            this.buttonUpdatePorts.Text = "Update Ports";
+            this.buttonUpdatePorts.UseVisualStyleBackColor = true;
+            this.buttonUpdatePorts.Click += new System.EventHandler(this.ButtonUpdatePorts_Click);
+            // 
+            // tabPageConsole
+            // 
+            this.tabPageConsole.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageConsole.Controls.Add(this.groupBox5);
+            this.tabPageConsole.Controls.Add(this.groupBox2);
+            this.tabPageConsole.Controls.Add(this.groupBox3);
+            this.tabPageConsole.Controls.Add(this.label9);
+            this.tabPageConsole.Controls.Add(this.label8);
+            this.tabPageConsole.Controls.Add(this.label7);
+            this.tabPageConsole.Controls.Add(this.dataGridDeviceInfo);
+            this.tabPageConsole.Controls.Add(this.dataGridSettings);
+            this.tabPageConsole.Controls.Add(this.dataGridDetections);
+            this.tabPageConsole.Location = new System.Drawing.Point(104, 4);
+            this.tabPageConsole.Name = "tabPageConsole";
+            this.tabPageConsole.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConsole.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageConsole.TabIndex = 1;
+            this.tabPageConsole.Text = "Node Console";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.tableLayoutPanel3);
+            this.groupBox3.Location = new System.Drawing.Point(715, 388);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(287, 133);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Settings Update";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.button5, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.label12, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.comboBox6, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label11, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.comboBox8, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.comboBox7, 1, 2);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 19);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(275, 108);
+            this.tableLayoutPanel3.TabIndex = 8;
+            // 
+            // button5
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.button5, 2);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button5.Location = new System.Drawing.Point(3, 84);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(269, 21);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Submit";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(46, 59);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 17);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Value";
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(140, 3);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(132, 21);
+            this.comboBox6.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(39, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Settings";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(140, 30);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(132, 21);
+            this.comboBox8.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(36, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 17);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Category";
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(140, 57);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(132, 21);
+            this.comboBox7.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(3, 3);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 20);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Device Info";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(248, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 20);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Tag Detections";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(711, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(139, 20);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Settings Summary";
+            // 
+            // dataGridDeviceInfo
+            // 
+            this.dataGridDeviceInfo.AllowUserToAddRows = false;
+            this.dataGridDeviceInfo.AllowUserToDeleteRows = false;
+            this.dataGridDeviceInfo.AllowUserToOrderColumns = true;
+            this.dataGridDeviceInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridDeviceInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDeviceInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnInfoType,
+            this.ColumnInfoValue});
+            this.dataGridDeviceInfo.Location = new System.Drawing.Point(6, 28);
+            this.dataGridDeviceInfo.Name = "dataGridDeviceInfo";
+            this.dataGridDeviceInfo.ReadOnly = true;
+            this.dataGridDeviceInfo.RowHeadersVisible = false;
+            this.dataGridDeviceInfo.Size = new System.Drawing.Size(240, 354);
+            this.dataGridDeviceInfo.TabIndex = 2;
+            // 
+            // ColumnInfoType
+            // 
+            this.ColumnInfoType.HeaderText = "Name";
+            this.ColumnInfoType.Name = "ColumnInfoType";
+            this.ColumnInfoType.ReadOnly = true;
+            // 
+            // ColumnInfoValue
+            // 
+            this.ColumnInfoValue.HeaderText = "Value";
+            this.ColumnInfoValue.Name = "ColumnInfoValue";
+            this.ColumnInfoValue.ReadOnly = true;
+            // 
+            // dataGridSettings
+            // 
+            this.dataGridSettings.AllowUserToAddRows = false;
+            this.dataGridSettings.AllowUserToDeleteRows = false;
+            this.dataGridSettings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridSettings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSettings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnSetting,
+            this.ColumnSettingValue});
+            this.dataGridSettings.Location = new System.Drawing.Point(715, 28);
+            this.dataGridSettings.Name = "dataGridSettings";
+            this.dataGridSettings.ReadOnly = true;
+            this.dataGridSettings.RowHeadersVisible = false;
+            this.dataGridSettings.Size = new System.Drawing.Size(288, 354);
+            this.dataGridSettings.TabIndex = 1;
+            // 
+            // ColumnSetting
+            // 
+            this.ColumnSetting.HeaderText = "Setting";
+            this.ColumnSetting.Name = "ColumnSetting";
+            this.ColumnSetting.ReadOnly = true;
+            // 
+            // ColumnSettingValue
+            // 
+            this.ColumnSettingValue.HeaderText = "Value";
+            this.ColumnSettingValue.Name = "ColumnSettingValue";
+            this.ColumnSettingValue.ReadOnly = true;
+            // 
+            // dataGridDetections
+            // 
+            this.dataGridDetections.AllowUserToAddRows = false;
+            this.dataGridDetections.AllowUserToDeleteRows = false;
+            this.dataGridDetections.AllowUserToOrderColumns = true;
+            this.dataGridDetections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDetections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnDetectionTime,
+            this.ColumnTagId,
+            this.ColumnTagRssi});
+            this.dataGridDetections.Location = new System.Drawing.Point(252, 28);
+            this.dataGridDetections.Name = "dataGridDetections";
+            this.dataGridDetections.ReadOnly = true;
+            this.dataGridDetections.RowHeadersVisible = false;
+            this.dataGridDetections.Size = new System.Drawing.Size(457, 354);
+            this.dataGridDetections.TabIndex = 0;
+            // 
+            // tabPageHealth
+            // 
+            this.tabPageHealth.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageHealth.Controls.Add(this.button10);
+            this.tabPageHealth.Controls.Add(this.dgvReceiver);
+            this.tabPageHealth.Location = new System.Drawing.Point(104, 4);
+            this.tabPageHealth.Name = "tabPageHealth";
+            this.tabPageHealth.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageHealth.TabIndex = 2;
+            this.tabPageHealth.Text = "Health";
+            // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button10.Location = new System.Drawing.Point(6, 496);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(998, 30);
+            this.button10.TabIndex = 2;
+            this.button10.Text = "Update";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // dgvReceiver
+            // 
+            this.dgvReceiver.AllowUserToAddRows = false;
+            this.dgvReceiver.AllowUserToDeleteRows = false;
+            this.dgvReceiver.AllowUserToOrderColumns = true;
+            this.dgvReceiver.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvReceiver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReceiver.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RxNodeSerial,
+            this.RxLastHealth,
+            this.RxRssiAvg,
+            this.RxFirmware,
+            this.RxBattery,
+            this.RxBatteryChange,
+            this.RxSolarV,
+            this.Column1,
+            this.RxFixAt,
+            this.RxFixLat,
+            this.RxFixLon,
+            this.RxBeepCount});
+            this.dgvReceiver.Location = new System.Drawing.Point(6, 6);
+            this.dgvReceiver.Margin = new System.Windows.Forms.Padding(6);
+            this.dgvReceiver.Name = "dgvReceiver";
+            this.dgvReceiver.ReadOnly = true;
+            this.dgvReceiver.RowHeadersVisible = false;
+            this.dgvReceiver.Size = new System.Drawing.Size(998, 483);
+            this.dgvReceiver.TabIndex = 1;
+            // 
+            // RxNodeSerial
+            // 
+            this.RxNodeSerial.HeaderText = "Serial";
+            this.RxNodeSerial.Name = "RxNodeSerial";
+            this.RxNodeSerial.ReadOnly = true;
+            this.RxNodeSerial.Width = 58;
+            // 
+            // RxLastHealth
+            // 
+            this.RxLastHealth.HeaderText = "Last Health [Local]";
+            this.RxLastHealth.MinimumWidth = 130;
+            this.RxLastHealth.Name = "RxLastHealth";
+            this.RxLastHealth.ReadOnly = true;
+            this.RxLastHealth.Width = 130;
+            // 
+            // RxRssiAvg
+            // 
+            this.RxRssiAvg.HeaderText = "Rssi x̄";
+            this.RxRssiAvg.MinimumWidth = 70;
+            this.RxRssiAvg.Name = "RxRssiAvg";
+            this.RxRssiAvg.ReadOnly = true;
+            this.RxRssiAvg.Width = 70;
+            // 
+            // RxFirmware
+            // 
+            this.RxFirmware.HeaderText = "Firmware";
+            this.RxFirmware.Name = "RxFirmware";
+            this.RxFirmware.ReadOnly = true;
+            this.RxFirmware.Width = 74;
+            // 
+            // RxBattery
+            // 
+            this.RxBattery.HeaderText = "Battery";
+            this.RxBattery.Name = "RxBattery";
+            this.RxBattery.ReadOnly = true;
+            this.RxBattery.Width = 65;
+            // 
+            // RxBatteryChange
+            // 
+            this.RxBatteryChange.HeaderText = "Δ Battery";
+            this.RxBatteryChange.MinimumWidth = 75;
+            this.RxBatteryChange.Name = "RxBatteryChange";
+            this.RxBatteryChange.ReadOnly = true;
+            this.RxBatteryChange.Width = 75;
+            // 
+            // RxSolarV
+            // 
+            this.RxSolarV.HeaderText = "Vs";
+            this.RxSolarV.Name = "RxSolarV";
+            this.RxSolarV.ReadOnly = true;
+            this.RxSolarV.Width = 44;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Σ Solar mA";
+            this.Column1.MinimumWidth = 90;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 90;
+            // 
+            // RxFixAt
+            // 
+            this.RxFixAt.HeaderText = "Fix Time [Local]";
+            this.RxFixAt.MinimumWidth = 130;
+            this.RxFixAt.Name = "RxFixAt";
+            this.RxFixAt.ReadOnly = true;
+            this.RxFixAt.Width = 130;
+            // 
+            // RxFixLat
+            // 
+            this.RxFixLat.HeaderText = "Latitude";
+            this.RxFixLat.Name = "RxFixLat";
+            this.RxFixLat.ReadOnly = true;
+            this.RxFixLat.Width = 70;
+            // 
+            // RxFixLon
+            // 
+            this.RxFixLon.HeaderText = "Longitude";
+            this.RxFixLon.Name = "RxFixLon";
+            this.RxFixLon.ReadOnly = true;
+            this.RxFixLon.Width = 79;
+            // 
+            // RxBeepCount
+            // 
+            this.RxBeepCount.HeaderText = "Beeps";
+            this.RxBeepCount.Name = "RxBeepCount";
+            this.RxBeepCount.ReadOnly = true;
+            this.RxBeepCount.Width = 62;
+            // 
+            // tabPageHelp
+            // 
+            this.tabPageHelp.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageHelp.Controls.Add(this.label4);
+            this.tabPageHelp.Controls.Add(this.button3);
+            this.tabPageHelp.Controls.Add(this.button2);
+            this.tabPageHelp.Controls.Add(this.textBox1);
+            this.tabPageHelp.Controls.Add(this.pictureBox1);
+            this.tabPageHelp.Controls.Add(this.comboBox3);
+            this.tabPageHelp.Location = new System.Drawing.Point(104, 4);
+            this.tabPageHelp.Name = "tabPageHelp";
+            this.tabPageHelp.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageHelp.TabIndex = 4;
+            this.tabPageHelp.Text = "Help";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(794, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(208, 400);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Next";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(3, 8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(210, 400);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Previous";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(102, 414);
+            this.textBox1.Location = new System.Drawing.Point(15, 414);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(633, 69);
+            this.textBox1.Size = new System.Drawing.Size(976, 69);
             this.textBox1.TabIndex = 14;
             // 
-            // button2
+            // pictureBox1
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(21, 414);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 69);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Previous";
-            this.button2.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = global::node_client.Properties.Resources.find_device_manager;
+            this.pictureBox1.Location = new System.Drawing.Point(219, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(569, 400);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
-            // button3
+            // comboBox3
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(741, 414);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 69);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Next";
-            this.button3.UseVisualStyleBackColor = true;
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(3, 495);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(999, 21);
+            this.comboBox3.TabIndex = 0;
+            // 
+            // tabPageUpload
+            // 
+            this.tabPageUpload.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageUpload.Controls.Add(this.label16);
+            this.tabPageUpload.Location = new System.Drawing.Point(104, 4);
+            this.tabPageUpload.Name = "tabPageUpload";
+            this.tabPageUpload.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageUpload.TabIndex = 5;
+            this.tabPageUpload.Text = "Upload";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(422, 254);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(143, 25);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Coming Soon !";
+            // 
+            // tabPageAbout
+            // 
+            this.tabPageAbout.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageAbout.Controls.Add(this.groupBox4);
+            this.tabPageAbout.Controls.Add(this.pictureBox2);
+            this.tabPageAbout.Location = new System.Drawing.Point(104, 4);
+            this.tabPageAbout.Name = "tabPageAbout";
+            this.tabPageAbout.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageAbout.TabIndex = 3;
+            this.tabPageAbout.Text = "About";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.labelCompany);
+            this.groupBox4.Controls.Add(this.linkLabelCompany);
+            this.groupBox4.Controls.Add(this.linkLabelContribute);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.labelVersion);
+            this.groupBox4.Controls.Add(this.labelProduct);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox4.Location = new System.Drawing.Point(324, 167);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(339, 151);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "About";
+            // 
+            // linkLabelCompany
+            // 
+            this.linkLabelCompany.AutoSize = true;
+            this.linkLabelCompany.Location = new System.Drawing.Point(266, 122);
+            this.linkLabelCompany.Name = "linkLabelCompany";
+            this.linkLabelCompany.Size = new System.Drawing.Size(67, 17);
+            this.linkLabelCompany.TabIndex = 4;
+            this.linkLabelCompany.TabStop = true;
+            this.linkLabelCompany.Text = "Company";
+            this.linkLabelCompany.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelCompany_LinkClicked);
+            // 
+            // linkLabelContribute
+            // 
+            this.linkLabelContribute.AutoSize = true;
+            this.linkLabelContribute.Location = new System.Drawing.Point(7, 122);
+            this.linkLabelContribute.Name = "linkLabelContribute";
+            this.linkLabelContribute.Size = new System.Drawing.Size(73, 17);
+            this.linkLabelContribute.TabIndex = 3;
+            this.linkLabelContribute.TabStop = true;
+            this.linkLabelContribute.Text = "Contribute";
+            this.linkLabelContribute.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelContribute_LinkClicked);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 57);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(184, 17);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Creator: Sheldon Blackshire";
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(7, 40);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(60, 17);
+            this.labelVersion.TabIndex = 1;
+            this.labelVersion.Text = "Version:";
+            // 
+            // labelProduct
+            // 
+            this.labelProduct.AutoSize = true;
+            this.labelProduct.Location = new System.Drawing.Point(7, 23);
+            this.labelProduct.Name = "labelProduct";
+            this.labelProduct.Size = new System.Drawing.Size(61, 17);
+            this.labelProduct.TabIndex = 0;
+            this.labelProduct.Text = "Product:";
+            this.labelProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = global::node_client.Properties.Resources.ctt_logo_300;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1004, 137);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(151, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 25);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Coming Soon !";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(252, 388);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(457, 133);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tag Filters";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.button11);
+            this.groupBox5.Controls.Add(this.button12);
+            this.groupBox5.Controls.Add(this.button13);
+            this.groupBox5.Controls.Add(this.button14);
+            this.groupBox5.Location = new System.Drawing.Point(7, 388);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(239, 136);
+            this.groupBox5.TabIndex = 14;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Tasks";
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(6, 107);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Firmware";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button11.Location = new System.Drawing.Point(6, 48);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(227, 23);
+            this.button11.TabIndex = 6;
+            this.button11.Text = "Health Message";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button12.Location = new System.Drawing.Point(6, 19);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(106, 23);
+            this.button12.TabIndex = 10;
+            this.button12.Text = "Get Id";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button13.Location = new System.Drawing.Point(6, 78);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(227, 23);
+            this.button13.TabIndex = 8;
+            this.button13.Text = "Relay Beeps";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button14.Location = new System.Drawing.Point(118, 19);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(115, 23);
+            this.button14.TabIndex = 9;
+            this.button14.Text = "Get Fix";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // ColumnDetectionTime
+            // 
+            this.ColumnDetectionTime.FillWeight = 34.29307F;
+            this.ColumnDetectionTime.HeaderText = "Detection Time [Local]";
+            this.ColumnDetectionTime.Name = "ColumnDetectionTime";
+            this.ColumnDetectionTime.ReadOnly = true;
+            this.ColumnDetectionTime.Width = 200;
+            // 
+            // ColumnTagId
+            // 
+            this.ColumnTagId.FillWeight = 220.0217F;
+            this.ColumnTagId.HeaderText = "Tag Id";
+            this.ColumnTagId.Name = "ColumnTagId";
+            this.ColumnTagId.ReadOnly = true;
+            this.ColumnTagId.Width = 150;
+            // 
+            // ColumnTagRssi
+            // 
+            this.ColumnTagRssi.FillWeight = 45.68528F;
+            this.ColumnTagRssi.HeaderText = "Signal [dBm]";
+            this.ColumnTagRssi.Name = "ColumnTagRssi";
+            this.ColumnTagRssi.ReadOnly = true;
+            this.ColumnTagRssi.Width = 103;
+            // 
+            // labelCompany
+            // 
+            this.labelCompany.AutoSize = true;
+            this.labelCompany.Location = new System.Drawing.Point(7, 74);
+            this.labelCompany.Name = "labelCompany";
+            this.labelCompany.Size = new System.Drawing.Size(71, 17);
+            this.labelCompany.TabIndex = 5;
+            this.labelCompany.Text = "Company:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(396, 443);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(223, 25);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Tutorials Coming Soon !";
             // 
             // NodeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(942, 537);
+            this.ClientSize = new System.Drawing.Size(1118, 537);
             this.Controls.Add(this.tabControlMain);
             this.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NodeClient";
             this.Text = "CTT Node Client";
             this.tabControlMain.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tabPageUsb.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tabPageConsole.ResumeLayout(false);
+            this.tabPageConsole.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDeviceInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).EndInit();
+            this.tabPageHealth.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiver)).EndInit();
+            this.tabPageHelp.ResumeLayout(false);
+            this.tabPageHelp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPageUpload.ResumeLayout(false);
+            this.tabPageUpload.PerformLayout();
+            this.tabPageAbout.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -392,30 +1109,88 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControlMain;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPageUsb;
+        private System.Windows.Forms.TabPage tabPageConsole;
+        private System.Windows.Forms.TabPage tabPageHealth;
+        private System.Windows.Forms.TabPage tabPageAbout;
         private System.Windows.Forms.Button buttonOpenPort1;
         private System.Windows.Forms.ComboBox comboBoxBaud1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxPort1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.ComboBox comboBoxBaud2;
+        private System.Windows.Forms.Button buttonOpenPort2;
+        private System.Windows.Forms.ComboBox comboBoxPort2;
+        private System.Windows.Forms.TabPage tabPageHelp;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxHandshake;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dataGridDeviceInfo;
+        private System.Windows.Forms.DataGridView dataGridSettings;
+        private System.Windows.Forms.DataGridView dataGridDetections;
+        private System.Windows.Forms.TabPage tabPageUpload;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.DataGridView dgvReceiver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxNodeSerial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxLastHealth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxRssiAvg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxFirmware;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxBattery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxBatteryChange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxSolarV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxFixAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxFixLat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxFixLon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RxBeepCount;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.LinkLabel linkLabelCompany;
+        private System.Windows.Forms.LinkLabel linkLabelContribute;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label labelProduct;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.CheckBox checkBoxDtr;
+        private System.Windows.Forms.Button buttonUpdatePorts;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSetting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSettingValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInfoType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInfoValue;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetectionTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTagId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTagRssi;
+        private System.Windows.Forms.Label labelCompany;
+        private System.Windows.Forms.Label label4;
     }
 }
 

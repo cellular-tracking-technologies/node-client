@@ -85,6 +85,7 @@
     <None Include="Assets\ctt_logo_icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ctt_logo_300.png" />
     <Content Include="Assets\ctt_node_1024x890.png" />
     <Content Include="Assets\device_manager.PNG" />
     <Content Include="Assets\find_device_manager.png" />
