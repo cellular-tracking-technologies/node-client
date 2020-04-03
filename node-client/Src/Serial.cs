@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace DeviceIo {
+namespace Src {
     public class Serial {
 
         SerialPort serial = new SerialPort();

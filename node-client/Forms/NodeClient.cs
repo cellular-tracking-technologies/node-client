@@ -1,5 +1,4 @@
-﻿using DeviceIo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,16 +12,36 @@ using System.Windows.Forms;
 namespace node_client {
     public partial class NodeClient : Form {
 
-        Serial serialConsole = new Serial();
-        Serial serialTransceiver = new Serial();
+        Src.Serial serialConsole;
+        Src.Serial serialTransceiver;
+        Src.LineBuilder consoleDataManager;
+
+        Src.Console.TagDetections beeps;
+        Src.Console.DeviceInfo info;
+        Src.Console.SettingsSummary settings;
+
+        Src.GridHealth.Manager healthManager;
 
         public NodeClient() {
             InitializeComponent();
+
+            this.serialConsole = new Src.Serial();
+            this.consoleDataManager = new Src.LineBuilder();
+
+            this.serialTransceiver = new Src.Serial();
+
+            this.beeps = new Src.Console.TagDetections(dataGridDetections);
+            this.info = new Src.Console.DeviceInfo(dataGridDeviceInfo);
+            this.settings = new Src.Console.SettingsSummary(dataGridSettings);
+
+            this.healthManager = new Src.GridHealth.Manager(this.dataGridHealth);
+
             this.Icon = Properties.Resources.ctt_logo_icon;
             tabControlMain.DrawItem += new DrawItemEventHandler(TabControlDrawItem);
 
             this.InitTabUsb();
             InitAboutTab();
+            this.healthManager.Init();
         }
         private void UpdatePortBoxes() {
             this.ComListToComboBox(serialConsole, comboBoxPort1);
@@ -46,6 +65,9 @@ namespace node_client {
             // Adafruit Feather 32u4 (Device typically used for transceiver) requires
             // the DTR line to be set HIGH before it will transmit data over the USB bus.
             this.checkBoxDtr.Checked = true;
+
+            serialConsole.DataAvailableEvent += SerialConsoleAvailable;
+            serialTransceiver.DataAvailableEvent += SerialTransceiverAvailable;
         }
         private void InitAboutTab() {
             labelVersion.Text = String.Format("Version:{0}", Application.ProductVersion);
@@ -86,7 +108,7 @@ namespace node_client {
         /// </summary>
         /// <param name="serial"></param>
         /// <param name="box"></param>
-        private void ComListToComboBox(Serial serial, ComboBox box) {
+        private void ComListToComboBox(Src.Serial serial, ComboBox box) {
             // Determine if the list of com port names has changed since last checked
             string selected = serial.GetPortString(box.Items.Cast<string>(),
                 box.SelectedItem as string);
@@ -94,9 +116,9 @@ namespace node_client {
             // If there was an update, then update the control showing the user the list of port names
             if (!String.IsNullOrEmpty(selected)) {
                 box.Items.Clear();
-                box.Items.AddRange(Serial.GetSortedAvailablePorts());
+                box.Items.AddRange(Src.Serial.GetSortedAvailablePorts());
                 box.SelectedItem = selected;
-            } else if (Serial.GetSortedAvailablePorts().Count() == 0) {
+            } else if (Src.Serial.GetSortedAvailablePorts().Count() == 0) {
                 // If there are no more ports available, clear the list
                 box.Items.Clear();
                 box.Text = "Select a Port";
@@ -109,7 +131,7 @@ namespace node_client {
             box.DropDownStyle = ComboBoxStyle.DropDownList;
             box.SelectedIndex = 0;
         }
-        private bool OpenPortClickCallback(Button click, Serial serial,
+        private bool OpenPortClickCallback(Button click, Src.Serial serial,
             string port, string baud, Handshake handshake, bool dtrHigh) {
             if (String.IsNullOrEmpty(port)) {
                 return false;
@@ -125,7 +147,7 @@ namespace node_client {
             return serial.IsOpen();
         }
         private void DisplayPortError(string port) {
-            MessageBox.Show(String.Format("Error {0} is busy or no longer available.", port), "Port Error",
+            MessageBox.Show(String.Format("Check Connection Settings under USB menu!{0}Selected Port {1} is closed, busy or no longer available.", Environment.NewLine, port), "Port Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         Handshake GetHandshakeMode(string data) {
@@ -143,15 +165,16 @@ namespace node_client {
             }
             return Handshake.None;
         }
+                     
         private void ButtonOpenPort1_Click(object sender, EventArgs e) {
             if (OpenPortClickCallback(sender as Button, 
                 this.serialConsole,
                 this.comboBoxPort1.Text, 
                 this.comboBoxBaud1.Text, 
                 Handshake.RequestToSendXOnXOff, false) == true) {
-                // todo success
+                // todo open
             } else {
-                this.DisplayPortError(this.comboBoxPort1.Text);
+                // todo close
             }
         }
 
@@ -164,10 +187,33 @@ namespace node_client {
                 this.comboBoxPort2.Text,
                 this.comboBoxBaud2.Text,
                 handshake, dtr) == true) {
-                // todo success
+                this.serialTransceiver.WriteData("preset:node3" + Environment.NewLine);
             } else {
-                this.DisplayPortError(this.comboBoxPort1.Text);
+                // todo close
             }
+        }
+        private void SerialConsoleAvailable(object sender, EventArgs e) {
+            Src.Serial serial = sender as Src.Serial;
+            if (serial.DataAvailable()) {
+                ProcessConsoleData(serial.GetData());
+            }
+        }
+        private void SerialTransceiverAvailable(object sender, EventArgs e) {
+            Src.Serial serial = sender as Src.Serial;
+            if (serial.DataAvailable()) {
+                string data = serial.GetData();
+                this.healthManager.IngestHealthData(data);
+            }
+        }
+      
+        private void ProcessConsoleData(string data) {
+            List<Action<string>> parsers = new List<Action<string>>();
+
+            parsers.Add(this.beeps.Parse);
+            parsers.Add(this.info.Parse);
+            parsers.Add(this.settings.Parse);
+
+            consoleDataManager.Ingest(data, parsers);
         }
 
         private void ButtonUpdatePorts_Click(object sender, EventArgs e) {
@@ -187,6 +233,39 @@ namespace node_client {
                 System.Diagnostics.Process.Start(url);
             } catch {
 
+            }
+        }
+        private void ButtonGetId_Click(object sender, EventArgs e) {
+            this.CommandRequest(Src.Console.DeviceTasks.IdCommand());
+        }
+        private void ButtonGetFix_Click(object sender, EventArgs e) {
+            this.CommandRequest(Src.Console.DeviceTasks.GpsFixCommand());
+        }
+        private void ButtonDoHealth_Click(object sender, EventArgs e) {
+            this.CommandRequest(Src.Console.DeviceTasks.HealthCommand());
+        }
+        private void ButtonDoRelay_Click(object sender, EventArgs e) {
+            this.CommandRequest(Src.Console.DeviceTasks.RelayCommand());
+        }
+        private void CommandRequest(string command) {
+            if (String.IsNullOrEmpty(command)) {
+                return;
+            }else if (String.IsNullOrWhiteSpace(command)) {
+                return;
+            }
+
+            if (this.serialConsole.IsOpen()) {
+                this.serialConsole.WriteData(command);
+            } else {
+                this.DisplayPortError(this.comboBoxPort1.Text);
+            }
+        }
+
+        private void ButtonHealthRefresh_Click(object sender, EventArgs e) {
+            if (this.serialTransceiver.IsOpen()) {
+                this.healthManager.Update();
+            } else {
+                this.DisplayPortError(this.comboBoxPort2.Text);
             }
         }
     }

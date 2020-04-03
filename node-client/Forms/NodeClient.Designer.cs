@@ -44,6 +44,14 @@
             this.label18 = new System.Windows.Forms.Label();
             this.buttonUpdatePorts = new System.Windows.Forms.Button();
             this.tabPageConsole = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonDoHealth = new System.Windows.Forms.Button();
+            this.buttonGetId = new System.Windows.Forms.Button();
+            this.buttonDoRelay = new System.Windows.Forms.Button();
+            this.buttonGetFix = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
@@ -63,9 +71,13 @@
             this.ColumnSetting = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSettingValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridDetections = new System.Windows.Forms.DataGridView();
+            this.ColumnDetectionTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTagId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTagRssi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPageRemoteConsole = new System.Windows.Forms.TabPage();
             this.tabPageHealth = new System.Windows.Forms.TabPage();
-            this.button10 = new System.Windows.Forms.Button();
-            this.dgvReceiver = new System.Windows.Forms.DataGridView();
+            this.buttonHealthRefresh = new System.Windows.Forms.Button();
+            this.dataGridHealth = new System.Windows.Forms.DataGridView();
             this.RxNodeSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RxLastHealth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RxRssiAvg = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +91,7 @@
             this.RxFixLon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RxBeepCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageHelp = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -88,45 +101,33 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.labelCompany = new System.Windows.Forms.Label();
             this.linkLabelCompany = new System.Windows.Forms.LinkLabel();
             this.linkLabelContribute = new System.Windows.Forms.LinkLabel();
             this.label15 = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelProduct = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.ColumnDetectionTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTagId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTagRssi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelCompany = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsb.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabPageConsole.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDeviceInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).BeginInit();
             this.tabPageHealth.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridHealth)).BeginInit();
             this.tabPageHelp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPageUpload.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -134,6 +135,7 @@
             this.tabControlMain.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControlMain.Controls.Add(this.tabPageUsb);
             this.tabControlMain.Controls.Add(this.tabPageConsole);
+            this.tabControlMain.Controls.Add(this.tabPageRemoteConsole);
             this.tabControlMain.Controls.Add(this.tabPageHealth);
             this.tabControlMain.Controls.Add(this.tabPageHelp);
             this.tabControlMain.Controls.Add(this.tabPageUpload);
@@ -401,7 +403,95 @@
             this.tabPageConsole.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageConsole.Size = new System.Drawing.Size(1010, 529);
             this.tabPageConsole.TabIndex = 1;
-            this.tabPageConsole.Text = "Node Console";
+            this.tabPageConsole.Text = "Local      Console";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.buttonDoHealth);
+            this.groupBox5.Controls.Add(this.buttonGetId);
+            this.groupBox5.Controls.Add(this.buttonDoRelay);
+            this.groupBox5.Controls.Add(this.buttonGetFix);
+            this.groupBox5.Location = new System.Drawing.Point(7, 388);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(239, 136);
+            this.groupBox5.TabIndex = 14;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Tasks";
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(6, 107);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Firmware";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // buttonDoHealth
+            // 
+            this.buttonDoHealth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonDoHealth.Location = new System.Drawing.Point(6, 48);
+            this.buttonDoHealth.Name = "buttonDoHealth";
+            this.buttonDoHealth.Size = new System.Drawing.Size(227, 23);
+            this.buttonDoHealth.TabIndex = 6;
+            this.buttonDoHealth.Text = "Health Message";
+            this.buttonDoHealth.UseVisualStyleBackColor = true;
+            this.buttonDoHealth.Click += new System.EventHandler(this.ButtonDoHealth_Click);
+            // 
+            // buttonGetId
+            // 
+            this.buttonGetId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonGetId.Location = new System.Drawing.Point(6, 19);
+            this.buttonGetId.Name = "buttonGetId";
+            this.buttonGetId.Size = new System.Drawing.Size(106, 23);
+            this.buttonGetId.TabIndex = 10;
+            this.buttonGetId.Text = "Get Id";
+            this.buttonGetId.UseVisualStyleBackColor = true;
+            this.buttonGetId.Click += new System.EventHandler(this.ButtonGetId_Click);
+            // 
+            // buttonDoRelay
+            // 
+            this.buttonDoRelay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonDoRelay.Location = new System.Drawing.Point(6, 78);
+            this.buttonDoRelay.Name = "buttonDoRelay";
+            this.buttonDoRelay.Size = new System.Drawing.Size(227, 23);
+            this.buttonDoRelay.TabIndex = 8;
+            this.buttonDoRelay.Text = "Relay Beeps";
+            this.buttonDoRelay.UseVisualStyleBackColor = true;
+            this.buttonDoRelay.Click += new System.EventHandler(this.ButtonDoRelay_Click);
+            // 
+            // buttonGetFix
+            // 
+            this.buttonGetFix.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonGetFix.Location = new System.Drawing.Point(118, 19);
+            this.buttonGetFix.Name = "buttonGetFix";
+            this.buttonGetFix.Size = new System.Drawing.Size(115, 23);
+            this.buttonGetFix.TabIndex = 9;
+            this.buttonGetFix.Text = "Get Fix";
+            this.buttonGetFix.UseVisualStyleBackColor = true;
+            this.buttonGetFix.Click += new System.EventHandler(this.ButtonGetFix_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(252, 388);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(457, 133);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tag Filters";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(151, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 25);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Coming Soon !";
             // 
             // groupBox3
             // 
@@ -617,36 +707,70 @@
             this.dataGridDetections.Size = new System.Drawing.Size(457, 354);
             this.dataGridDetections.TabIndex = 0;
             // 
+            // ColumnDetectionTime
+            // 
+            this.ColumnDetectionTime.FillWeight = 34.29307F;
+            this.ColumnDetectionTime.HeaderText = "Detection Time [Local]";
+            this.ColumnDetectionTime.Name = "ColumnDetectionTime";
+            this.ColumnDetectionTime.ReadOnly = true;
+            this.ColumnDetectionTime.Width = 200;
+            // 
+            // ColumnTagId
+            // 
+            this.ColumnTagId.FillWeight = 220.0217F;
+            this.ColumnTagId.HeaderText = "Tag Id";
+            this.ColumnTagId.Name = "ColumnTagId";
+            this.ColumnTagId.ReadOnly = true;
+            this.ColumnTagId.Width = 150;
+            // 
+            // ColumnTagRssi
+            // 
+            this.ColumnTagRssi.FillWeight = 45.68528F;
+            this.ColumnTagRssi.HeaderText = "Signal [dBm]";
+            this.ColumnTagRssi.Name = "ColumnTagRssi";
+            this.ColumnTagRssi.ReadOnly = true;
+            this.ColumnTagRssi.Width = 103;
+            // 
+            // tabPageRemoteConsole
+            // 
+            this.tabPageRemoteConsole.Location = new System.Drawing.Point(104, 4);
+            this.tabPageRemoteConsole.Name = "tabPageRemoteConsole";
+            this.tabPageRemoteConsole.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageRemoteConsole.TabIndex = 6;
+            this.tabPageRemoteConsole.Text = "Remote Console";
+            this.tabPageRemoteConsole.UseVisualStyleBackColor = true;
+            // 
             // tabPageHealth
             // 
             this.tabPageHealth.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageHealth.Controls.Add(this.button10);
-            this.tabPageHealth.Controls.Add(this.dgvReceiver);
+            this.tabPageHealth.Controls.Add(this.buttonHealthRefresh);
+            this.tabPageHealth.Controls.Add(this.dataGridHealth);
             this.tabPageHealth.Location = new System.Drawing.Point(104, 4);
             this.tabPageHealth.Name = "tabPageHealth";
             this.tabPageHealth.Size = new System.Drawing.Size(1010, 529);
             this.tabPageHealth.TabIndex = 2;
-            this.tabPageHealth.Text = "Health";
+            this.tabPageHealth.Text = "Grid           Health";
             // 
-            // button10
+            // buttonHealthRefresh
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button10.Location = new System.Drawing.Point(6, 496);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(998, 30);
-            this.button10.TabIndex = 2;
-            this.button10.Text = "Update";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonHealthRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHealthRefresh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonHealthRefresh.Location = new System.Drawing.Point(6, 496);
+            this.buttonHealthRefresh.Name = "buttonHealthRefresh";
+            this.buttonHealthRefresh.Size = new System.Drawing.Size(998, 30);
+            this.buttonHealthRefresh.TabIndex = 2;
+            this.buttonHealthRefresh.Text = "Update";
+            this.buttonHealthRefresh.UseVisualStyleBackColor = true;
+            this.buttonHealthRefresh.Click += new System.EventHandler(this.ButtonHealthRefresh_Click);
             // 
-            // dgvReceiver
+            // dataGridHealth
             // 
-            this.dgvReceiver.AllowUserToAddRows = false;
-            this.dgvReceiver.AllowUserToDeleteRows = false;
-            this.dgvReceiver.AllowUserToOrderColumns = true;
-            this.dgvReceiver.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvReceiver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReceiver.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridHealth.AllowUserToAddRows = false;
+            this.dataGridHealth.AllowUserToDeleteRows = false;
+            this.dataGridHealth.AllowUserToOrderColumns = true;
+            this.dataGridHealth.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridHealth.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridHealth.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RxNodeSerial,
             this.RxLastHealth,
             this.RxRssiAvg,
@@ -659,13 +783,13 @@
             this.RxFixLat,
             this.RxFixLon,
             this.RxBeepCount});
-            this.dgvReceiver.Location = new System.Drawing.Point(6, 6);
-            this.dgvReceiver.Margin = new System.Windows.Forms.Padding(6);
-            this.dgvReceiver.Name = "dgvReceiver";
-            this.dgvReceiver.ReadOnly = true;
-            this.dgvReceiver.RowHeadersVisible = false;
-            this.dgvReceiver.Size = new System.Drawing.Size(998, 483);
-            this.dgvReceiver.TabIndex = 1;
+            this.dataGridHealth.Location = new System.Drawing.Point(6, 6);
+            this.dataGridHealth.Margin = new System.Windows.Forms.Padding(6);
+            this.dataGridHealth.Name = "dataGridHealth";
+            this.dataGridHealth.ReadOnly = true;
+            this.dataGridHealth.RowHeadersVisible = false;
+            this.dataGridHealth.Size = new System.Drawing.Size(998, 483);
+            this.dataGridHealth.TabIndex = 1;
             // 
             // RxNodeSerial
             // 
@@ -770,6 +894,16 @@
             this.tabPageHelp.Size = new System.Drawing.Size(1010, 529);
             this.tabPageHelp.TabIndex = 4;
             this.tabPageHelp.Text = "Help";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(396, 443);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(223, 25);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Tutorials Coming Soon !";
             // 
             // button3
             // 
@@ -876,6 +1010,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "About";
             // 
+            // labelCompany
+            // 
+            this.labelCompany.AutoSize = true;
+            this.labelCompany.Location = new System.Drawing.Point(7, 74);
+            this.labelCompany.Name = "labelCompany";
+            this.labelCompany.Size = new System.Drawing.Size(71, 17);
+            this.labelCompany.TabIndex = 5;
+            this.labelCompany.Text = "Company:";
+            // 
             // linkLabelCompany
             // 
             this.linkLabelCompany.AutoSize = true;
@@ -937,133 +1080,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(151, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 25);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Coming Soon !";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(252, 388);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(457, 133);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tag Filters";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Controls.Add(this.button11);
-            this.groupBox5.Controls.Add(this.button12);
-            this.groupBox5.Controls.Add(this.button13);
-            this.groupBox5.Controls.Add(this.button14);
-            this.groupBox5.Location = new System.Drawing.Point(7, 388);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(239, 136);
-            this.groupBox5.TabIndex = 14;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Tasks";
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(6, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Firmware";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button11.Location = new System.Drawing.Point(6, 48);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(227, 23);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "Health Message";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button12.Location = new System.Drawing.Point(6, 19);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(106, 23);
-            this.button12.TabIndex = 10;
-            this.button12.Text = "Get Id";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button13.Location = new System.Drawing.Point(6, 78);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(227, 23);
-            this.button13.TabIndex = 8;
-            this.button13.Text = "Relay Beeps";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button14.Location = new System.Drawing.Point(118, 19);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(115, 23);
-            this.button14.TabIndex = 9;
-            this.button14.Text = "Get Fix";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // ColumnDetectionTime
-            // 
-            this.ColumnDetectionTime.FillWeight = 34.29307F;
-            this.ColumnDetectionTime.HeaderText = "Detection Time [Local]";
-            this.ColumnDetectionTime.Name = "ColumnDetectionTime";
-            this.ColumnDetectionTime.ReadOnly = true;
-            this.ColumnDetectionTime.Width = 200;
-            // 
-            // ColumnTagId
-            // 
-            this.ColumnTagId.FillWeight = 220.0217F;
-            this.ColumnTagId.HeaderText = "Tag Id";
-            this.ColumnTagId.Name = "ColumnTagId";
-            this.ColumnTagId.ReadOnly = true;
-            this.ColumnTagId.Width = 150;
-            // 
-            // ColumnTagRssi
-            // 
-            this.ColumnTagRssi.FillWeight = 45.68528F;
-            this.ColumnTagRssi.HeaderText = "Signal [dBm]";
-            this.ColumnTagRssi.Name = "ColumnTagRssi";
-            this.ColumnTagRssi.ReadOnly = true;
-            this.ColumnTagRssi.Width = 103;
-            // 
-            // labelCompany
-            // 
-            this.labelCompany.AutoSize = true;
-            this.labelCompany.Location = new System.Drawing.Point(7, 74);
-            this.labelCompany.Name = "labelCompany";
-            this.labelCompany.Size = new System.Drawing.Size(71, 17);
-            this.labelCompany.TabIndex = 5;
-            this.labelCompany.Text = "Company:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(396, 443);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(223, 25);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Tutorials Coming Soon !";
-            // 
             // NodeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1082,6 +1098,9 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tabPageConsole.ResumeLayout(false);
             this.tabPageConsole.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -1089,7 +1108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).EndInit();
             this.tabPageHealth.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridHealth)).EndInit();
             this.tabPageHelp.ResumeLayout(false);
             this.tabPageHelp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1099,9 +1118,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1146,7 +1162,7 @@
         private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.DataGridView dgvReceiver;
+        private System.Windows.Forms.DataGridView dataGridHealth;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxNodeSerial;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxLastHealth;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxRssiAvg;
@@ -1159,7 +1175,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RxFixLat;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxFixLon;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxBeepCount;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonHealthRefresh;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.LinkLabel linkLabelCompany;
@@ -1182,15 +1198,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button buttonDoHealth;
+        private System.Windows.Forms.Button buttonGetId;
+        private System.Windows.Forms.Button buttonDoRelay;
+        private System.Windows.Forms.Button buttonGetFix;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetectionTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTagId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTagRssi;
         private System.Windows.Forms.Label labelCompany;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPageRemoteConsole;
     }
 }
 
