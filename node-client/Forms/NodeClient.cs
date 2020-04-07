@@ -11,14 +11,20 @@ using System.Windows.Forms;
 
 namespace node_client {
     public partial class NodeClient : Form {
-
+    
+        /* todo build serial port manager class.
+         * Eventual goal is to allow multiple receivers
+         * to be controlled by a software basestation.
+        */
         Src.Serial serialConsole;
         Src.Serial serialTransceiver;
-        Src.LineBuilder consoleDataManager;
 
+        // todo wrap console related stuff into managerclass
+        Src.LineBuilder consoleDataManager;
         Src.Console.TagDetections beeps;
         Src.Console.DeviceInfo info;
         Src.Console.SettingsSummary settings;
+
 
         Src.GridHealth.Manager healthManager;
 
@@ -266,6 +272,26 @@ namespace node_client {
                 this.healthManager.Update();
             } else {
                 this.DisplayPortError(this.comboBoxPort2.Text);
+            }
+        }
+
+        private void ButtonEmulate_Click(object sender, EventArgs e) {
+
+            string inputToEmulate = textBoxEmulateTag.Text;
+            if (String.IsNullOrWhiteSpace(inputToEmulate)) {
+                return;
+            }
+
+            if(System.Text.RegularExpressions.Regex.IsMatch(inputToEmulate, @"\A\b[0-9a-fA-F]+\b\Z") == true) {
+
+                int command = 10;
+                if (checkBoxEmulateCrc.Checked) {
+                    command = 11;
+                }
+
+                int tag = int.Parse(inputToEmulate, System.Globalization.NumberStyles.HexNumber);
+
+                this.serialConsole.WriteData(String.Format("tag:{0},{1}{2}", command, tag, Environment.NewLine));
             }
         }
     }

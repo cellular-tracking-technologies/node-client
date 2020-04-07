@@ -51,7 +51,6 @@
             this.buttonDoRelay = new System.Windows.Forms.Button();
             this.buttonGetFix = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
@@ -108,6 +107,9 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelProduct = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textBoxEmulateTag = new System.Windows.Forms.TextBox();
+            this.buttonEmulate = new System.Windows.Forms.Button();
+            this.checkBoxEmulateCrc = new System.Windows.Forms.CheckBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsb.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -434,7 +436,7 @@
             this.buttonDoHealth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonDoHealth.Location = new System.Drawing.Point(6, 48);
             this.buttonDoHealth.Name = "buttonDoHealth";
-            this.buttonDoHealth.Size = new System.Drawing.Size(227, 23);
+            this.buttonDoHealth.Size = new System.Drawing.Size(106, 23);
             this.buttonDoHealth.TabIndex = 6;
             this.buttonDoHealth.Text = "Health Message";
             this.buttonDoHealth.UseVisualStyleBackColor = true;
@@ -454,9 +456,9 @@
             // buttonDoRelay
             // 
             this.buttonDoRelay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonDoRelay.Location = new System.Drawing.Point(6, 78);
+            this.buttonDoRelay.Location = new System.Drawing.Point(118, 47);
             this.buttonDoRelay.Name = "buttonDoRelay";
-            this.buttonDoRelay.Size = new System.Drawing.Size(227, 23);
+            this.buttonDoRelay.Size = new System.Drawing.Size(115, 23);
             this.buttonDoRelay.TabIndex = 8;
             this.buttonDoRelay.Text = "Relay Beeps";
             this.buttonDoRelay.UseVisualStyleBackColor = true;
@@ -475,23 +477,15 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.checkBoxEmulateCrc);
+            this.groupBox2.Controls.Add(this.buttonEmulate);
+            this.groupBox2.Controls.Add(this.textBoxEmulateTag);
             this.groupBox2.Location = new System.Drawing.Point(252, 388);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(457, 133);
+            this.groupBox2.Size = new System.Drawing.Size(216, 77);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tag Filters";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(151, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 25);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Coming Soon !";
+            this.groupBox2.Text = "Tag Emulator";
             // 
             // groupBox3
             // 
@@ -1080,6 +1074,33 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // textBoxEmulateTag
+            // 
+            this.textBoxEmulateTag.Location = new System.Drawing.Point(6, 19);
+            this.textBoxEmulateTag.Name = "textBoxEmulateTag";
+            this.textBoxEmulateTag.Size = new System.Drawing.Size(135, 20);
+            this.textBoxEmulateTag.TabIndex = 0;
+            // 
+            // buttonEmulate
+            // 
+            this.buttonEmulate.Location = new System.Drawing.Point(6, 45);
+            this.buttonEmulate.Name = "buttonEmulate";
+            this.buttonEmulate.Size = new System.Drawing.Size(135, 23);
+            this.buttonEmulate.TabIndex = 1;
+            this.buttonEmulate.Text = "Emulate";
+            this.buttonEmulate.UseVisualStyleBackColor = true;
+            this.buttonEmulate.Click += new System.EventHandler(this.ButtonEmulate_Click);
+            // 
+            // checkBoxEmulateCrc
+            // 
+            this.checkBoxEmulateCrc.AutoSize = true;
+            this.checkBoxEmulateCrc.Location = new System.Drawing.Point(147, 20);
+            this.checkBoxEmulateCrc.Name = "checkBoxEmulateCrc";
+            this.checkBoxEmulateCrc.Size = new System.Drawing.Size(64, 17);
+            this.checkBoxEmulateCrc.TabIndex = 2;
+            this.checkBoxEmulateCrc.Text = "Use Crc";
+            this.checkBoxEmulateCrc.UseVisualStyleBackColor = true;
+            // 
             // NodeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1195,7 +1216,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInfoType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInfoValue;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonDoHealth;
@@ -1208,6 +1228,9 @@
         private System.Windows.Forms.Label labelCompany;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPageRemoteConsole;
+        private System.Windows.Forms.CheckBox checkBoxEmulateCrc;
+        private System.Windows.Forms.Button buttonEmulate;
+        private System.Windows.Forms.TextBox textBoxEmulateTag;
     }
 }
 
