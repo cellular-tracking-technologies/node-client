@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
 
-namespace Src.Console {
+namespace Src.LocalConsole {
     class TagDetections {
         private DataGridView view;
         public TagDetections(DataGridView grid) {

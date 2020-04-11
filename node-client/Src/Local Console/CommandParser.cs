@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Src.Console {
+namespace Src.LocalConsole {
     class CommandParser {
         int MinimumFields => 2;
         private bool Parsed { get; set; }
@@ -52,6 +52,7 @@ namespace Src.Console {
                     return false;
             }
         }
+
         private bool ParseGps(List<string> data) {
             if (data.Count < 4) {
                 return false;

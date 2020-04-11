@@ -51,15 +51,17 @@
             this.buttonDoRelay = new System.Windows.Forms.Button();
             this.buttonGetFix = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.checkBoxEmulateCrc = new System.Windows.Forms.CheckBox();
+            this.buttonEmulate = new System.Windows.Forms.Button();
+            this.textBoxEmulateTag = new System.Windows.Forms.TextBox();
+            this.groupBoxLocaleSettingsUpdate = new System.Windows.Forms.GroupBox();
+            this.buttonSubmit = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.comboBoxValue = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxSettings = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -107,9 +109,6 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelProduct = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBoxEmulateTag = new System.Windows.Forms.TextBox();
-            this.buttonEmulate = new System.Windows.Forms.Button();
-            this.checkBoxEmulateCrc = new System.Windows.Forms.CheckBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsb.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -117,8 +116,7 @@
             this.tabPageConsole.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.groupBoxLocaleSettingsUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDeviceInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).BeginInit();
@@ -393,7 +391,7 @@
             this.tabPageConsole.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageConsole.Controls.Add(this.groupBox5);
             this.tabPageConsole.Controls.Add(this.groupBox2);
-            this.tabPageConsole.Controls.Add(this.groupBox3);
+            this.tabPageConsole.Controls.Add(this.groupBoxLocaleSettingsUpdate);
             this.tabPageConsole.Controls.Add(this.label9);
             this.tabPageConsole.Controls.Add(this.label8);
             this.tabPageConsole.Controls.Add(this.label7);
@@ -487,50 +485,60 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tag Emulator";
             // 
-            // groupBox3
+            // checkBoxEmulateCrc
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.tableLayoutPanel3);
-            this.groupBox3.Location = new System.Drawing.Point(715, 388);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(287, 133);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Settings Update";
+            this.checkBoxEmulateCrc.AutoSize = true;
+            this.checkBoxEmulateCrc.Location = new System.Drawing.Point(147, 20);
+            this.checkBoxEmulateCrc.Name = "checkBoxEmulateCrc";
+            this.checkBoxEmulateCrc.Size = new System.Drawing.Size(64, 17);
+            this.checkBoxEmulateCrc.TabIndex = 2;
+            this.checkBoxEmulateCrc.Text = "Use Crc";
+            this.checkBoxEmulateCrc.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel3
+            // buttonEmulate
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.button5, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label12, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.comboBox6, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label11, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.comboBox8, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.comboBox7, 1, 2);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 19);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 4;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(275, 108);
-            this.tableLayoutPanel3.TabIndex = 8;
+            this.buttonEmulate.Location = new System.Drawing.Point(6, 45);
+            this.buttonEmulate.Name = "buttonEmulate";
+            this.buttonEmulate.Size = new System.Drawing.Size(135, 23);
+            this.buttonEmulate.TabIndex = 1;
+            this.buttonEmulate.Text = "Emulate";
+            this.buttonEmulate.UseVisualStyleBackColor = true;
+            this.buttonEmulate.Click += new System.EventHandler(this.ButtonEmulate_Click);
             // 
-            // button5
+            // textBoxEmulateTag
             // 
-            this.tableLayoutPanel3.SetColumnSpan(this.button5, 2);
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Location = new System.Drawing.Point(3, 84);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(269, 21);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Submit";
-            this.button5.UseVisualStyleBackColor = true;
+            this.textBoxEmulateTag.Location = new System.Drawing.Point(6, 19);
+            this.textBoxEmulateTag.Name = "textBoxEmulateTag";
+            this.textBoxEmulateTag.Size = new System.Drawing.Size(135, 20);
+            this.textBoxEmulateTag.TabIndex = 0;
+            // 
+            // groupBoxLocaleSettingsUpdate
+            // 
+            this.groupBoxLocaleSettingsUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.buttonSubmit);
+            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.label12);
+            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.comboBoxValue);
+            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.comboBoxCategory);
+            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.label10);
+            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.label11);
+            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.comboBoxSettings);
+            this.groupBoxLocaleSettingsUpdate.Location = new System.Drawing.Point(715, 388);
+            this.groupBoxLocaleSettingsUpdate.Name = "groupBoxLocaleSettingsUpdate";
+            this.groupBoxLocaleSettingsUpdate.Size = new System.Drawing.Size(287, 133);
+            this.groupBoxLocaleSettingsUpdate.TabIndex = 7;
+            this.groupBoxLocaleSettingsUpdate.TabStop = false;
+            this.groupBoxLocaleSettingsUpdate.Text = "Settings Update";
+            // 
+            // buttonSubmit
+            // 
+            this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSubmit.Location = new System.Drawing.Point(149, 106);
+            this.buttonSubmit.Name = "buttonSubmit";
+            this.buttonSubmit.Size = new System.Drawing.Size(132, 21);
+            this.buttonSubmit.TabIndex = 2;
+            this.buttonSubmit.Text = "Submit";
+            this.buttonSubmit.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -538,41 +546,28 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(46, 59);
+            this.label12.Location = new System.Drawing.Point(55, 81);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 17);
             this.label12.TabIndex = 9;
             this.label12.Text = "Value";
             // 
-            // comboBox6
+            // comboBoxValue
             // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(140, 3);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(132, 21);
-            this.comboBox6.TabIndex = 3;
+            this.comboBoxValue.FormattingEnabled = true;
+            this.comboBoxValue.Location = new System.Drawing.Point(149, 79);
+            this.comboBoxValue.Name = "comboBoxValue";
+            this.comboBoxValue.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxValue.TabIndex = 6;
             // 
-            // label11
+            // comboBoxCategory
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(39, 32);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 17);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Settings";
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(140, 30);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(132, 21);
-            this.comboBox8.TabIndex = 5;
+            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(149, 25);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxCategory.TabIndex = 3;
             // 
             // label10
             // 
@@ -580,19 +575,32 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(36, 5);
+            this.label10.Location = new System.Drawing.Point(45, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 17);
             this.label10.TabIndex = 7;
             this.label10.Text = "Category";
             // 
-            // comboBox7
+            // label11
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(140, 57);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(132, 21);
-            this.comboBox7.TabIndex = 6;
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(48, 54);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Settings";
+            // 
+            // comboBoxSettings
+            // 
+            this.comboBoxSettings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSettings.FormattingEnabled = true;
+            this.comboBoxSettings.Location = new System.Drawing.Point(149, 52);
+            this.comboBoxSettings.Name = "comboBoxSettings";
+            this.comboBoxSettings.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxSettings.TabIndex = 5;
             // 
             // label9
             // 
@@ -1074,33 +1082,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // textBoxEmulateTag
-            // 
-            this.textBoxEmulateTag.Location = new System.Drawing.Point(6, 19);
-            this.textBoxEmulateTag.Name = "textBoxEmulateTag";
-            this.textBoxEmulateTag.Size = new System.Drawing.Size(135, 20);
-            this.textBoxEmulateTag.TabIndex = 0;
-            // 
-            // buttonEmulate
-            // 
-            this.buttonEmulate.Location = new System.Drawing.Point(6, 45);
-            this.buttonEmulate.Name = "buttonEmulate";
-            this.buttonEmulate.Size = new System.Drawing.Size(135, 23);
-            this.buttonEmulate.TabIndex = 1;
-            this.buttonEmulate.Text = "Emulate";
-            this.buttonEmulate.UseVisualStyleBackColor = true;
-            this.buttonEmulate.Click += new System.EventHandler(this.ButtonEmulate_Click);
-            // 
-            // checkBoxEmulateCrc
-            // 
-            this.checkBoxEmulateCrc.AutoSize = true;
-            this.checkBoxEmulateCrc.Location = new System.Drawing.Point(147, 20);
-            this.checkBoxEmulateCrc.Name = "checkBoxEmulateCrc";
-            this.checkBoxEmulateCrc.Size = new System.Drawing.Size(64, 17);
-            this.checkBoxEmulateCrc.TabIndex = 2;
-            this.checkBoxEmulateCrc.Text = "Use Crc";
-            this.checkBoxEmulateCrc.UseVisualStyleBackColor = true;
-            // 
             // NodeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1122,9 +1103,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.groupBoxLocaleSettingsUpdate.ResumeLayout(false);
+            this.groupBoxLocaleSettingsUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDeviceInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).EndInit();
@@ -1174,15 +1154,14 @@
         private System.Windows.Forms.DataGridView dataGridSettings;
         private System.Windows.Forms.DataGridView dataGridDetections;
         private System.Windows.Forms.TabPage tabPageUpload;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.GroupBox groupBoxLocaleSettingsUpdate;
+        private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox comboBoxSettings;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox comboBoxValue;
         private System.Windows.Forms.DataGridView dataGridHealth;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxNodeSerial;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxLastHealth;

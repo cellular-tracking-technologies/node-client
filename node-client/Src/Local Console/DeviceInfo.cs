@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace Src.Console {
+namespace Src.LocalConsole {
     class DeviceInfo {
 
         Dictionary<string, string> info = new Dictionary<string, string>();

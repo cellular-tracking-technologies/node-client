@@ -21,9 +21,9 @@ namespace node_client {
 
         // todo wrap console related stuff into managerclass
         Src.LineBuilder consoleDataManager;
-        Src.Console.TagDetections beeps;
-        Src.Console.DeviceInfo info;
-        Src.Console.SettingsSummary settings;
+        Src.LocalConsole.TagDetections beeps;
+        Src.LocalConsole.DeviceInfo info;
+        Src.LocalConsole.SettingsManager settings;
 
 
         Src.GridHealth.Manager healthManager;
@@ -36,9 +36,17 @@ namespace node_client {
 
             this.serialTransceiver = new Src.Serial();
 
-            this.beeps = new Src.Console.TagDetections(dataGridDetections);
-            this.info = new Src.Console.DeviceInfo(dataGridDeviceInfo);
-            this.settings = new Src.Console.SettingsSummary(dataGridSettings);
+            this.beeps = new Src.LocalConsole.TagDetections(dataGridDetections);
+            this.info = new Src.LocalConsole.DeviceInfo(dataGridDeviceInfo);
+
+            Dictionary<string, Control> settingControls = new Dictionary<string, Control>() {
+                {"class", comboBoxCategory},
+                {"command", comboBoxSettings},
+                {"value", comboBoxValue},
+                {"submit", buttonSubmit}
+            };
+
+            this.settings = new Src.LocalConsole.SettingsManager(serialConsole, dataGridSettings, settingControls);
 
             this.healthManager = new Src.GridHealth.Manager(this.dataGridHealth);
 
@@ -48,6 +56,10 @@ namespace node_client {
             this.InitTabUsb();
             InitAboutTab();
             this.healthManager.Init();
+            
+            foreach(Control c in groupBoxLocaleSettingsUpdate.Controls) {
+                Console.WriteLine(String.Format("{0} {1}", c.Name, c.GetType()));
+            }                                 
         }
         private void UpdatePortBoxes() {
             this.ComListToComboBox(serialConsole, comboBoxPort1);
@@ -242,16 +254,16 @@ namespace node_client {
             }
         }
         private void ButtonGetId_Click(object sender, EventArgs e) {
-            this.CommandRequest(Src.Console.DeviceTasks.IdCommand());
+            this.CommandRequest(Src.LocalConsole.DeviceTasks.IdCommand());
         }
         private void ButtonGetFix_Click(object sender, EventArgs e) {
-            this.CommandRequest(Src.Console.DeviceTasks.GpsFixCommand());
+            this.CommandRequest(Src.LocalConsole.DeviceTasks.GpsFixCommand());
         }
         private void ButtonDoHealth_Click(object sender, EventArgs e) {
-            this.CommandRequest(Src.Console.DeviceTasks.HealthCommand());
+            this.CommandRequest(Src.LocalConsole.DeviceTasks.HealthCommand());
         }
         private void ButtonDoRelay_Click(object sender, EventArgs e) {
-            this.CommandRequest(Src.Console.DeviceTasks.RelayCommand());
+            this.CommandRequest(Src.LocalConsole.DeviceTasks.RelayCommand());
         }
         private void CommandRequest(string command) {
             if (String.IsNullOrEmpty(command)) {

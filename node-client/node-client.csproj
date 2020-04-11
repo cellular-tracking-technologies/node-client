@@ -63,7 +63,7 @@
     <Compile Include="Src\Local Console\DeviceInfo.cs" />
     <Compile Include="Src\Local Console\DeviceTasks.cs" />
     <Compile Include="Src\Local Console\Settings\NodeConfig.cs" />
-    <Compile Include="Src\Local Console\Settings\SettingsSummary.cs" />
+    <Compile Include="Src\Local Console\Settings\SettingsManager.cs" />
     <Compile Include="Src\Local Console\TagDetections.cs" />
     <Compile Include="Src\LineBuilder.cs" />
     <Compile Include="Src\LogManager.cs" />

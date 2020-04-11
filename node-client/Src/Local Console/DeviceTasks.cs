@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Src.Console {
+namespace Src.LocalConsole {
     class DeviceTasks {
         static public string IdCommand() {
             return "id" + Environment.NewLine;
