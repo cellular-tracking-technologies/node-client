@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -288,23 +289,52 @@ namespace node_client {
         }
 
         private void ButtonEmulate_Click(object sender, EventArgs e) {
-
             string inputToEmulate = textBoxEmulateTag.Text;
             if (String.IsNullOrWhiteSpace(inputToEmulate)) {
                 return;
             }
-
             if(System.Text.RegularExpressions.Regex.IsMatch(inputToEmulate, @"\A\b[0-9a-fA-F]+\b\Z") == true) {
-
                 int command = 10;
                 if (checkBoxEmulateCrc.Checked) {
                     command = 11;
                 }
-
                 int tag = int.Parse(inputToEmulate, System.Globalization.NumberStyles.HexNumber);
-
                 this.serialConsole.WriteData(String.Format("tag:{0},{1}{2}", command, tag, Environment.NewLine));
             }
+        }
+        private void ButtonFirmware_Click(object sender, EventArgs e) {
+            Src.LocalConsole.FileUpload file = new Src.LocalConsole.FileUpload {
+                FileType = "Firmware",
+                Extension = ".firmware",
+                Command = "firmware",
+                Options = "-w",
+                Filters = null,
+                PreUploadAction = (bool start) => {
+
+                    // Note: This function gets called from a spawned thread, not main!
+
+                    /*
+                     * Input parameter tells if the user selected a file, or aborted the process.
+                     * If start is true, instruct node to stop radio and gps so it can devote 
+                     * resources to downloading the firmware. 
+                     */
+
+                    this.serialConsole.WriteData(Src.LocalConsole.DeviceTasks.DisableRadioAndGps(start ? true : false));
+
+                    /*
+                     * Give the node 10 seconds to process the request and gracefully shutdown
+                     * the receiver and gps. 10 Seconds is probably excessive, but its better
+                     * to take a little extra time, then for the firmware download to be 
+                     * incomplete, requiring the process to be started over by the user.
+                     */
+
+                    if (start) {
+                        Thread.Sleep(10000);
+                    }
+                }
+            };
+
+            file.Upload(this.serialConsole);
         }
     }
 }
