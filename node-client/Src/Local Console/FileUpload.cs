@@ -40,39 +40,6 @@ namespace Src.LocalConsole {
             return String.Empty;
         }
 
-        public void Upload(Serial serial, Int32 delay_us, Func<string, string> name_decorator) {
-            string file_name = GetFileFromDialog(FileType, Extension);
-            bool quit = false;
-            if (String.IsNullOrEmpty(file_name)) {
-                quit = true;
-            } else if (String.IsNullOrWhiteSpace(file_name)) {
-                quit = true;
-            }
-           
-            if (quit) {
-                PreBuildTask(false);
-                return;
-            } else {
-                PreBuildTask(true);
-            }
-
-            FileName = name_decorator(Path.GetFileName(file_name));
-            FileContents = File.ReadAllText(file_name);
-
-            ApplyFilters();
-
-            Thread upload = new Thread(() => {
-                try {
-                    serial.WriteDataSlowly(Header, delay_us);
-                    Thread.Sleep(2000);
-                    serial.WriteDataSlowly(FileContents, delay_us);
-                } finally {
-
-                }
-            });
-            upload.Start();
-        }
-
         public void Upload(Serial serial) {
             string file_name = GetFileFromDialog(FileType, Extension);
             bool quit = false;
