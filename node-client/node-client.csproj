@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\File Transfer\NodeDir.cs" />
     <Compile Include="Src\Grid Health\Manager.cs" />
     <Compile Include="Src\Grid Health\NodeStatus.cs" />
     <Compile Include="Src\Local Console\CommandParser.cs" />
@@ -102,7 +103,10 @@
   <ItemGroup>
     <Content Include="Assets\ctt_logo_300.png" />
     <Content Include="Assets\ctt_node_1024x890.png" />
+    <None Include="Assets\refresh.png" />
+    <None Include="Assets\delete.png" />
     <Content Include="Assets\device_manager.PNG" />
+    <None Include="Assets\download.png" />
     <Content Include="Assets\find_device_manager.png" />
   </ItemGroup>
   <ItemGroup />

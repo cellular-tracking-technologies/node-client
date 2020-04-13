@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NodeClient));
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageUsb = new System.Windows.Forms.TabPage();
@@ -91,7 +92,8 @@
             this.RxFixLat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RxFixLon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RxBeepCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPageUpload = new System.Windows.Forms.TabPage();
+            this.tabPageTransfer = new System.Windows.Forms.TabPage();
+            this.dataGridDirectory = new System.Windows.Forms.DataGridView();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -102,6 +104,11 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelProduct = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ColumnDirName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDirSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFileModified = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDirDownload = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnDirDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsb.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -115,7 +122,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).BeginInit();
             this.tabPageHealth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHealth)).BeginInit();
-            this.tabPageUpload.SuspendLayout();
+            this.tabPageTransfer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDirectory)).BeginInit();
             this.tabPageAbout.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -128,7 +136,7 @@
             this.tabControlMain.Controls.Add(this.tabPageConsole);
             this.tabControlMain.Controls.Add(this.tabPageRemoteConsole);
             this.tabControlMain.Controls.Add(this.tabPageHealth);
-            this.tabControlMain.Controls.Add(this.tabPageUpload);
+            this.tabControlMain.Controls.Add(this.tabPageTransfer);
             this.tabControlMain.Controls.Add(this.tabPageAbout);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -142,6 +150,7 @@
             this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlMain.TabIndex = 0;
             this.tabControlMain.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControlDrawItem);
+            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.TabControlMain_SelectedIndexChanged);
             // 
             // tabPageUsb
             // 
@@ -216,10 +225,8 @@
             this.comboBoxBaud1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBaud1.FormattingEnabled = true;
             this.comboBoxBaud1.Items.AddRange(new object[] {
-            "115200",
-            "57600",
-            "9600",
-            "4800"});
+            "380000",
+            "115200"});
             this.comboBoxBaud1.Location = new System.Drawing.Point(101, 65);
             this.comboBoxBaud1.Name = "comboBoxBaud1";
             this.comboBoxBaud1.Size = new System.Drawing.Size(93, 24);
@@ -873,25 +880,56 @@
             this.RxBeepCount.ReadOnly = true;
             this.RxBeepCount.Width = 62;
             // 
-            // tabPageUpload
+            // tabPageTransfer
             // 
-            this.tabPageUpload.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageUpload.Controls.Add(this.label16);
-            this.tabPageUpload.Location = new System.Drawing.Point(104, 4);
-            this.tabPageUpload.Name = "tabPageUpload";
-            this.tabPageUpload.Size = new System.Drawing.Size(1010, 529);
-            this.tabPageUpload.TabIndex = 5;
-            this.tabPageUpload.Text = "Upload";
+            this.tabPageTransfer.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageTransfer.Controls.Add(this.dataGridDirectory);
+            this.tabPageTransfer.Controls.Add(this.label16);
+            this.tabPageTransfer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tabPageTransfer.Location = new System.Drawing.Point(104, 4);
+            this.tabPageTransfer.Name = "tabPageTransfer";
+            this.tabPageTransfer.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageTransfer.TabIndex = 5;
+            this.tabPageTransfer.Text = "File Transfer";
+            // 
+            // dataGridDirectory
+            // 
+            this.dataGridDirectory.AllowUserToAddRows = false;
+            this.dataGridDirectory.AllowUserToDeleteRows = false;
+            this.dataGridDirectory.AllowUserToOrderColumns = true;
+            this.dataGridDirectory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridDirectory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDirectory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnDirName,
+            this.ColumnDirSize,
+            this.ColumnFileModified,
+            this.ColumnDirDownload,
+            this.ColumnDirDelete});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridDirectory.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridDirectory.Location = new System.Drawing.Point(3, 30);
+            this.dataGridDirectory.Name = "dataGridDirectory";
+            this.dataGridDirectory.ReadOnly = true;
+            this.dataGridDirectory.RowHeadersVisible = false;
+            this.dataGridDirectory.Size = new System.Drawing.Size(441, 496);
+            this.dataGridDirectory.TabIndex = 3;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(422, 254);
+            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label16.Location = new System.Drawing.Point(3, 2);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(143, 25);
+            this.label16.Size = new System.Drawing.Size(89, 25);
             this.label16.TabIndex = 0;
-            this.label16.Text = "Coming Soon !";
+            this.label16.Text = "Directory";
             // 
             // tabPageAbout
             // 
@@ -992,6 +1030,41 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // ColumnDirName
+            // 
+            this.ColumnDirName.HeaderText = "Name";
+            this.ColumnDirName.Name = "ColumnDirName";
+            this.ColumnDirName.ReadOnly = true;
+            // 
+            // ColumnDirSize
+            // 
+            this.ColumnDirSize.HeaderText = "Size";
+            this.ColumnDirSize.Name = "ColumnDirSize";
+            this.ColumnDirSize.ReadOnly = true;
+            // 
+            // ColumnFileModified
+            // 
+            this.ColumnFileModified.HeaderText = "Last Modified";
+            this.ColumnFileModified.Name = "ColumnFileModified";
+            this.ColumnFileModified.ReadOnly = true;
+            // 
+            // ColumnDirDownload
+            // 
+            this.ColumnDirDownload.HeaderText = "Download";
+            this.ColumnDirDownload.Image = global::node_client.Properties.Resources.download;
+            this.ColumnDirDownload.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ColumnDirDownload.Name = "ColumnDirDownload";
+            this.ColumnDirDownload.ReadOnly = true;
+            this.ColumnDirDownload.Visible = false;
+            // 
+            // ColumnDirDelete
+            // 
+            this.ColumnDirDelete.HeaderText = "Delete";
+            this.ColumnDirDelete.Image = global::node_client.Properties.Resources.delete;
+            this.ColumnDirDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ColumnDirDelete.Name = "ColumnDirDelete";
+            this.ColumnDirDelete.ReadOnly = true;
+            // 
             // NodeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1020,8 +1093,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).EndInit();
             this.tabPageHealth.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHealth)).EndInit();
-            this.tabPageUpload.ResumeLayout(false);
-            this.tabPageUpload.PerformLayout();
+            this.tabPageTransfer.ResumeLayout(false);
+            this.tabPageTransfer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDirectory)).EndInit();
             this.tabPageAbout.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -1054,7 +1128,7 @@
         private System.Windows.Forms.DataGridView dataGridDeviceInfo;
         private System.Windows.Forms.DataGridView dataGridSettings;
         private System.Windows.Forms.DataGridView dataGridDetections;
-        private System.Windows.Forms.TabPage tabPageUpload;
+        private System.Windows.Forms.TabPage tabPageTransfer;
         private System.Windows.Forms.GroupBox groupBoxLocaleSettingsUpdate;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Label label12;
@@ -1110,6 +1184,12 @@
         private System.Windows.Forms.CheckBox checkBoxEmulateCrc;
         private System.Windows.Forms.Button buttonEmulate;
         private System.Windows.Forms.TextBox textBoxEmulateTag;
+        private System.Windows.Forms.DataGridView dataGridDirectory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDirName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDirSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFileModified;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnDirDownload;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnDirDelete;
     }
 }
 

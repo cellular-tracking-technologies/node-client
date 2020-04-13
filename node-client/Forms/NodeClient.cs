@@ -26,6 +26,7 @@ namespace node_client {
         Src.LocalConsole.DeviceInfo info;
         Src.LocalConsole.SettingsManager settings;
 
+        Src.FileTransfer.NodeDir dir;
 
         Src.GridHealth.Manager healthManager;
 
@@ -53,6 +54,8 @@ namespace node_client {
 
             this.Icon = Properties.Resources.ctt_logo_icon;
             tabControlMain.DrawItem += new DrawItemEventHandler(TabControlDrawItem);
+
+            dir = new Src.FileTransfer.NodeDir(serialConsole, dataGridDirectory);
 
             this.InitTabUsb();
             InitAboutTab();
@@ -170,17 +173,16 @@ namespace node_client {
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         Handshake GetHandshakeMode(string data) {
-            if (data.Equals("None")) {
-                return Handshake.None;
-            }
-            if (data.Equals("xOnXOff")) {
-                return Handshake.XOnXOff;
-            }
-            if (data.Equals("RequestToSendXOnXOff")) {
-                return Handshake.RequestToSendXOnXOff;
-            }
-            if (data.Equals("RequestToSend")) {
-                return Handshake.RequestToSend;
+            if (String.IsNullOrEmpty(data) == false) {
+                var lookupTable = new Dictionary<string, Handshake>(){
+                    { Handshake.None.ToString(),                 Handshake.None},
+                    { Handshake.XOnXOff.ToString(),              Handshake.XOnXOff},
+                    { Handshake.RequestToSendXOnXOff.ToString(), Handshake.RequestToSendXOnXOff},
+                    { Handshake.RequestToSend.ToString(),        Handshake.RequestToSend}
+                };
+                if (lookupTable.ContainsKey(data)) {
+                    return lookupTable[data];
+                }
             }
             return Handshake.None;
         }
@@ -191,7 +193,6 @@ namespace node_client {
                 this.comboBoxPort1.Text, 
                 this.comboBoxBaud1.Text, 
                 Handshake.RequestToSendXOnXOff, false) == true) {
-                // todo open
             } else {
                 // todo close
             }
@@ -228,6 +229,7 @@ namespace node_client {
         private void ProcessConsoleData(string data) {
             List<Action<string>> parsers = new List<Action<string>>();
 
+            parsers.Add(this.dir.Parse);
             parsers.Add(this.beeps.Parse);
             parsers.Add(this.info.Parse);
             parsers.Add(this.settings.Parse);
@@ -335,6 +337,11 @@ namespace node_client {
             };
 
             file.Upload(this.serialConsole);
+        }
+        private void TabControlMain_SelectedIndexChanged(object sender, EventArgs e) {
+            TabControl tab = sender as TabControl;
+            if (tab.SelectedTab.Name.Equals("tabPageTransfer")) {
+            }
         }
     }
 }
