@@ -64,6 +64,7 @@
     <Compile Include="Src\Local Console\DeviceInfo.cs" />
     <Compile Include="Src\Local Console\DeviceTasks.cs" />
     <Compile Include="Src\Local Console\FileUpload.cs" />
+    <Compile Include="Src\Local Console\SensorStationListener.cs" />
     <Compile Include="Src\Local Console\Settings\NodeConfig.cs" />
     <Compile Include="Src\Local Console\Settings\SettingsManager.cs" />
     <Compile Include="Src\Local Console\TagDetections.cs" />

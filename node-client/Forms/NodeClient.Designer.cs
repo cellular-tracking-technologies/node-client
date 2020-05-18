@@ -94,6 +94,11 @@
             this.RxBeepCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageTransfer = new System.Windows.Forms.TabPage();
             this.dataGridDirectory = new System.Windows.Forms.DataGridView();
+            this.ColumnDirName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDirSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFileModified = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDirDownload = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnDirDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -104,11 +109,8 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelProduct = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.ColumnDirName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDirSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFileModified = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDirDownload = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColumnDirDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tabPageSensorStation = new System.Windows.Forms.TabPage();
+            this.textBoxSensorStation = new System.Windows.Forms.TextBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsb.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -127,6 +129,7 @@
             this.tabPageAbout.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabPageSensorStation.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -138,6 +141,7 @@
             this.tabControlMain.Controls.Add(this.tabPageHealth);
             this.tabControlMain.Controls.Add(this.tabPageTransfer);
             this.tabControlMain.Controls.Add(this.tabPageAbout);
+            this.tabControlMain.Controls.Add(this.tabPageSensorStation);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControlMain.ItemSize = new System.Drawing.Size(50, 100);
@@ -920,6 +924,41 @@
             this.dataGridDirectory.Size = new System.Drawing.Size(441, 496);
             this.dataGridDirectory.TabIndex = 3;
             // 
+            // ColumnDirName
+            // 
+            this.ColumnDirName.HeaderText = "Name";
+            this.ColumnDirName.Name = "ColumnDirName";
+            this.ColumnDirName.ReadOnly = true;
+            // 
+            // ColumnDirSize
+            // 
+            this.ColumnDirSize.HeaderText = "Size";
+            this.ColumnDirSize.Name = "ColumnDirSize";
+            this.ColumnDirSize.ReadOnly = true;
+            // 
+            // ColumnFileModified
+            // 
+            this.ColumnFileModified.HeaderText = "Last Modified";
+            this.ColumnFileModified.Name = "ColumnFileModified";
+            this.ColumnFileModified.ReadOnly = true;
+            // 
+            // ColumnDirDownload
+            // 
+            this.ColumnDirDownload.HeaderText = "Download";
+            this.ColumnDirDownload.Image = global::node_client.Properties.Resources.download;
+            this.ColumnDirDownload.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ColumnDirDownload.Name = "ColumnDirDownload";
+            this.ColumnDirDownload.ReadOnly = true;
+            this.ColumnDirDownload.Visible = false;
+            // 
+            // ColumnDirDelete
+            // 
+            this.ColumnDirDelete.HeaderText = "Delete";
+            this.ColumnDirDelete.Image = global::node_client.Properties.Resources.delete;
+            this.ColumnDirDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ColumnDirDelete.Name = "ColumnDirDelete";
+            this.ColumnDirDelete.ReadOnly = true;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -1030,40 +1069,23 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // ColumnDirName
+            // tabPageSensorStation
             // 
-            this.ColumnDirName.HeaderText = "Name";
-            this.ColumnDirName.Name = "ColumnDirName";
-            this.ColumnDirName.ReadOnly = true;
+            this.tabPageSensorStation.Controls.Add(this.textBoxSensorStation);
+            this.tabPageSensorStation.Location = new System.Drawing.Point(104, 4);
+            this.tabPageSensorStation.Name = "tabPageSensorStation";
+            this.tabPageSensorStation.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageSensorStation.TabIndex = 7;
+            this.tabPageSensorStation.Text = "SenorStation";
+            this.tabPageSensorStation.UseVisualStyleBackColor = true;
             // 
-            // ColumnDirSize
+            // textBoxSensorStation
             // 
-            this.ColumnDirSize.HeaderText = "Size";
-            this.ColumnDirSize.Name = "ColumnDirSize";
-            this.ColumnDirSize.ReadOnly = true;
-            // 
-            // ColumnFileModified
-            // 
-            this.ColumnFileModified.HeaderText = "Last Modified";
-            this.ColumnFileModified.Name = "ColumnFileModified";
-            this.ColumnFileModified.ReadOnly = true;
-            // 
-            // ColumnDirDownload
-            // 
-            this.ColumnDirDownload.HeaderText = "Download";
-            this.ColumnDirDownload.Image = global::node_client.Properties.Resources.download;
-            this.ColumnDirDownload.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ColumnDirDownload.Name = "ColumnDirDownload";
-            this.ColumnDirDownload.ReadOnly = true;
-            this.ColumnDirDownload.Visible = false;
-            // 
-            // ColumnDirDelete
-            // 
-            this.ColumnDirDelete.HeaderText = "Delete";
-            this.ColumnDirDelete.Image = global::node_client.Properties.Resources.delete;
-            this.ColumnDirDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ColumnDirDelete.Name = "ColumnDirDelete";
-            this.ColumnDirDelete.ReadOnly = true;
+            this.textBoxSensorStation.Location = new System.Drawing.Point(3, 8);
+            this.textBoxSensorStation.Multiline = true;
+            this.textBoxSensorStation.Name = "textBoxSensorStation";
+            this.textBoxSensorStation.Size = new System.Drawing.Size(1004, 370);
+            this.textBoxSensorStation.TabIndex = 0;
             // 
             // NodeClient
             // 
@@ -1100,6 +1122,8 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tabPageSensorStation.ResumeLayout(false);
+            this.tabPageSensorStation.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1190,6 +1214,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFileModified;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDirDownload;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDirDelete;
+        private System.Windows.Forms.TabPage tabPageSensorStation;
+        private System.Windows.Forms.TextBox textBoxSensorStation;
     }
 }
 

@@ -25,6 +25,7 @@ namespace node_client {
         Src.LocalConsole.TagDetections beeps;
         Src.LocalConsole.DeviceInfo info;
         Src.LocalConsole.SettingsManager settings;
+        Src.LocalConsole.SensorStationListener ss;
 
         Src.FileTransfer.NodeDir dir;
 
@@ -40,6 +41,7 @@ namespace node_client {
 
             this.beeps = new Src.LocalConsole.TagDetections(dataGridDetections);
             this.info = new Src.LocalConsole.DeviceInfo(dataGridDeviceInfo);
+            this.ss = new Src.LocalConsole.SensorStationListener(textBoxSensorStation);
 
             Dictionary<string, Control> settingControls = new Dictionary<string, Control>() {
                 {"class", comboBoxCategory},
@@ -233,6 +235,7 @@ namespace node_client {
             parsers.Add(this.beeps.Parse);
             parsers.Add(this.info.Parse);
             parsers.Add(this.settings.Parse);
+            parsers.Add(this.ss.Parse);
 
             consoleDataManager.Ingest(data, parsers);
         }
