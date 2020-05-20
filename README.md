@@ -18,6 +18,10 @@ The CTT Node is a receiver for LifeTag & PowerTags thats also capable of offload
 * https://dotnet.microsoft.com/download/dotnet-framework/net472
 
 ## Installation
+
+You must download the following driver so windows can recognize the node when connected over USB.
+https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
+
 ### Source
 ### Prebuilt Executable
 ## Roadmap
