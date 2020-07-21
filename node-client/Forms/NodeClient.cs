@@ -44,28 +44,25 @@ namespace node_client {
             this.ss = new Src.LocalConsole.SensorStationListener(textBoxSensorStation);
 
             Dictionary<string, Control> settingControls = new Dictionary<string, Control>() {
-                {"class", comboBoxCategory},
-                {"command", comboBoxSettings},
-                {"value", comboBoxValue},
-                {"submit", buttonSubmit}
+                {"refresh", buttonSettingsRefresh},
+                {"save", buttonSettingsSave}                
             };
 
             this.settings = new Src.LocalConsole.SettingsManager(serialConsole, dataGridSettings, settingControls);
-
             this.healthManager = new Src.GridHealth.Manager(this.dataGridHealth);
 
             this.Icon = Properties.Resources.ctt_logo_icon;
             tabControlMain.DrawItem += new DrawItemEventHandler(TabControlDrawItem);
-
-            dir = new Src.FileTransfer.NodeDir(serialConsole, dataGridDirectory);
+           
+            dir = new Src.FileTransfer.NodeDir(serialConsole, 
+                new Dictionary<string, Control>() {
+                    { "table", dataGridDirectory},
+                    { "progress", progressBarDownload}
+                });
 
             this.InitTabUsb();
             InitAboutTab();
-            this.healthManager.Init();
-            
-            foreach(Control c in groupBoxLocaleSettingsUpdate.Controls) {
-                Console.WriteLine(String.Format("{0} {1}", c.Name, c.GetType()));
-            }                                 
+            this.healthManager.Init();                              
         }
         private void UpdatePortBoxes() {
             this.ComListToComboBox(serialConsole, comboBoxPort1);
@@ -345,6 +342,10 @@ namespace node_client {
             TabControl tab = sender as TabControl;
             if (tab.SelectedTab.Name.Equals("tabPageTransfer")) {
             }
+        }
+
+        private void ButtonUpdateDir_Click(object sender, EventArgs e) {
+            dir.Update();
         }
     }
 }

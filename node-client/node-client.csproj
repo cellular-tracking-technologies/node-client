@@ -55,6 +55,12 @@
     <Compile Include="Forms\NodeClient.Designer.cs">
       <DependentUpon>NodeClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SettingUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingUpdate.Designer.cs">
+      <DependentUpon>SettingUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\File Transfer\NodeDir.cs" />
@@ -65,7 +71,7 @@
     <Compile Include="Src\Local Console\DeviceTasks.cs" />
     <Compile Include="Src\Local Console\FileUpload.cs" />
     <Compile Include="Src\Local Console\SensorStationListener.cs" />
-    <Compile Include="Src\Local Console\Settings\NodeConfig.cs" />
+    <Compile Include="Src\Local Console\Settings\Setting.cs" />
     <Compile Include="Src\Local Console\Settings\SettingsManager.cs" />
     <Compile Include="Src\Local Console\TagDetections.cs" />
     <Compile Include="Src\LineBuilder.cs" />
@@ -73,6 +79,9 @@
     <Compile Include="Src\Serial.cs" />
     <EmbeddedResource Include="Forms\NodeClient.resx">
       <DependentUpon>NodeClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingUpdate.resx">
+      <DependentUpon>SettingUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,6 +113,7 @@
   <ItemGroup>
     <Content Include="Assets\ctt_logo_300.png" />
     <Content Include="Assets\ctt_node_1024x890.png" />
+    <Content Include="Assets\gear.png" />
     <None Include="Assets\refresh.png" />
     <None Include="Assets\delete.png" />
     <Content Include="Assets\device_manager.PNG" />

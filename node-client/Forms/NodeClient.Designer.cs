@@ -55,14 +55,6 @@
             this.checkBoxEmulateCrc = new System.Windows.Forms.CheckBox();
             this.buttonEmulate = new System.Windows.Forms.Button();
             this.textBoxEmulateTag = new System.Windows.Forms.TextBox();
-            this.groupBoxLocaleSettingsUpdate = new System.Windows.Forms.GroupBox();
-            this.buttonSubmit = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBoxValue = new System.Windows.Forms.ComboBox();
-            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxSettings = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,12 +62,7 @@
             this.ColumnInfoType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInfoValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridSettings = new System.Windows.Forms.DataGridView();
-            this.ColumnSetting = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSettingValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridDetections = new System.Windows.Forms.DataGridView();
-            this.ColumnDetectionTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTagId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTagRssi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageRemoteConsole = new System.Windows.Forms.TabPage();
             this.tabPageHealth = new System.Windows.Forms.TabPage();
             this.buttonHealthRefresh = new System.Windows.Forms.Button();
@@ -93,6 +80,8 @@
             this.RxFixLon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RxBeepCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageTransfer = new System.Windows.Forms.TabPage();
+            this.progressBarDownload = new System.Windows.Forms.ProgressBar();
+            this.buttonUpdateDir = new System.Windows.Forms.Button();
             this.dataGridDirectory = new System.Windows.Forms.DataGridView();
             this.ColumnDirName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDirSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,6 +100,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPageSensorStation = new System.Windows.Forms.TabPage();
             this.textBoxSensorStation = new System.Windows.Forms.TextBox();
+            this.ColumnDetectionTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTagId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTagRssi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSetting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSettingValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSettingUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSettingUpdate = new System.Windows.Forms.DataGridViewImageColumn();
+            this.buttonSettingsRefresh = new System.Windows.Forms.Button();
+            this.buttonSettingsSave = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsb.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -118,7 +116,6 @@
             this.tabPageConsole.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBoxLocaleSettingsUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDeviceInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).BeginInit();
@@ -150,7 +147,7 @@
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1118, 537);
+            this.tabControlMain.Size = new System.Drawing.Size(1183, 537);
             this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlMain.TabIndex = 0;
             this.tabControlMain.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControlDrawItem);
@@ -164,7 +161,7 @@
             this.tabPageUsb.Location = new System.Drawing.Point(104, 4);
             this.tabPageUsb.Name = "tabPageUsb";
             this.tabPageUsb.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUsb.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageUsb.Size = new System.Drawing.Size(1075, 529);
             this.tabPageUsb.TabIndex = 0;
             this.tabPageUsb.Text = "USB";
             // 
@@ -390,9 +387,10 @@
             // tabPageConsole
             // 
             this.tabPageConsole.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageConsole.Controls.Add(this.buttonSettingsSave);
+            this.tabPageConsole.Controls.Add(this.buttonSettingsRefresh);
             this.tabPageConsole.Controls.Add(this.groupBox5);
             this.tabPageConsole.Controls.Add(this.groupBox2);
-            this.tabPageConsole.Controls.Add(this.groupBoxLocaleSettingsUpdate);
             this.tabPageConsole.Controls.Add(this.label9);
             this.tabPageConsole.Controls.Add(this.label8);
             this.tabPageConsole.Controls.Add(this.label7);
@@ -402,7 +400,7 @@
             this.tabPageConsole.Location = new System.Drawing.Point(104, 4);
             this.tabPageConsole.Name = "tabPageConsole";
             this.tabPageConsole.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConsole.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageConsole.Size = new System.Drawing.Size(1075, 529);
             this.tabPageConsole.TabIndex = 1;
             this.tabPageConsole.Text = "Local      Console";
             // 
@@ -514,96 +512,6 @@
             this.textBoxEmulateTag.Size = new System.Drawing.Size(135, 20);
             this.textBoxEmulateTag.TabIndex = 0;
             // 
-            // groupBoxLocaleSettingsUpdate
-            // 
-            this.groupBoxLocaleSettingsUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.buttonSubmit);
-            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.label12);
-            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.comboBoxValue);
-            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.comboBoxCategory);
-            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.label10);
-            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.label11);
-            this.groupBoxLocaleSettingsUpdate.Controls.Add(this.comboBoxSettings);
-            this.groupBoxLocaleSettingsUpdate.Location = new System.Drawing.Point(715, 388);
-            this.groupBoxLocaleSettingsUpdate.Name = "groupBoxLocaleSettingsUpdate";
-            this.groupBoxLocaleSettingsUpdate.Size = new System.Drawing.Size(287, 133);
-            this.groupBoxLocaleSettingsUpdate.TabIndex = 7;
-            this.groupBoxLocaleSettingsUpdate.TabStop = false;
-            this.groupBoxLocaleSettingsUpdate.Text = "Settings Update";
-            // 
-            // buttonSubmit
-            // 
-            this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSubmit.Location = new System.Drawing.Point(149, 106);
-            this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(132, 21);
-            this.buttonSubmit.TabIndex = 2;
-            this.buttonSubmit.Text = "Submit";
-            this.buttonSubmit.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(55, 81);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 17);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "Value";
-            // 
-            // comboBoxValue
-            // 
-            this.comboBoxValue.FormattingEnabled = true;
-            this.comboBoxValue.Location = new System.Drawing.Point(149, 79);
-            this.comboBoxValue.Name = "comboBoxValue";
-            this.comboBoxValue.Size = new System.Drawing.Size(132, 21);
-            this.comboBoxValue.TabIndex = 6;
-            // 
-            // comboBoxCategory
-            // 
-            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(149, 25);
-            this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(132, 21);
-            this.comboBoxCategory.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(45, 27);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 17);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Category";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(48, 54);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 17);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Settings";
-            // 
-            // comboBoxSettings
-            // 
-            this.comboBoxSettings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSettings.FormattingEnabled = true;
-            this.comboBoxSettings.Location = new System.Drawing.Point(149, 52);
-            this.comboBoxSettings.Name = "comboBoxSettings";
-            this.comboBoxSettings.Size = new System.Drawing.Size(132, 21);
-            this.comboBoxSettings.TabIndex = 5;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -631,7 +539,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(711, 5);
+            this.label7.Location = new System.Drawing.Point(655, 5);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(139, 20);
             this.label7.TabIndex = 3;
@@ -674,31 +582,22 @@
             this.dataGridSettings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSettings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnSetting,
-            this.ColumnSettingValue});
-            this.dataGridSettings.Location = new System.Drawing.Point(715, 28);
+            this.ColumnSettingValue,
+            this.ColumnSettingUnits,
+            this.ColumnSettingUpdate});
+            this.dataGridSettings.Location = new System.Drawing.Point(659, 28);
             this.dataGridSettings.Name = "dataGridSettings";
             this.dataGridSettings.ReadOnly = true;
             this.dataGridSettings.RowHeadersVisible = false;
-            this.dataGridSettings.Size = new System.Drawing.Size(288, 354);
+            this.dataGridSettings.Size = new System.Drawing.Size(408, 444);
             this.dataGridSettings.TabIndex = 1;
-            // 
-            // ColumnSetting
-            // 
-            this.ColumnSetting.HeaderText = "Setting";
-            this.ColumnSetting.Name = "ColumnSetting";
-            this.ColumnSetting.ReadOnly = true;
-            // 
-            // ColumnSettingValue
-            // 
-            this.ColumnSettingValue.HeaderText = "Value";
-            this.ColumnSettingValue.Name = "ColumnSettingValue";
-            this.ColumnSettingValue.ReadOnly = true;
             // 
             // dataGridDetections
             // 
             this.dataGridDetections.AllowUserToAddRows = false;
             this.dataGridDetections.AllowUserToDeleteRows = false;
             this.dataGridDetections.AllowUserToOrderColumns = true;
+            this.dataGridDetections.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridDetections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridDetections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnDetectionTime,
@@ -708,38 +607,14 @@
             this.dataGridDetections.Name = "dataGridDetections";
             this.dataGridDetections.ReadOnly = true;
             this.dataGridDetections.RowHeadersVisible = false;
-            this.dataGridDetections.Size = new System.Drawing.Size(457, 354);
+            this.dataGridDetections.Size = new System.Drawing.Size(401, 354);
             this.dataGridDetections.TabIndex = 0;
-            // 
-            // ColumnDetectionTime
-            // 
-            this.ColumnDetectionTime.FillWeight = 34.29307F;
-            this.ColumnDetectionTime.HeaderText = "Detection Time [Local]";
-            this.ColumnDetectionTime.Name = "ColumnDetectionTime";
-            this.ColumnDetectionTime.ReadOnly = true;
-            this.ColumnDetectionTime.Width = 200;
-            // 
-            // ColumnTagId
-            // 
-            this.ColumnTagId.FillWeight = 220.0217F;
-            this.ColumnTagId.HeaderText = "Tag Id";
-            this.ColumnTagId.Name = "ColumnTagId";
-            this.ColumnTagId.ReadOnly = true;
-            this.ColumnTagId.Width = 150;
-            // 
-            // ColumnTagRssi
-            // 
-            this.ColumnTagRssi.FillWeight = 45.68528F;
-            this.ColumnTagRssi.HeaderText = "Signal [dBm]";
-            this.ColumnTagRssi.Name = "ColumnTagRssi";
-            this.ColumnTagRssi.ReadOnly = true;
-            this.ColumnTagRssi.Width = 103;
             // 
             // tabPageRemoteConsole
             // 
             this.tabPageRemoteConsole.Location = new System.Drawing.Point(104, 4);
             this.tabPageRemoteConsole.Name = "tabPageRemoteConsole";
-            this.tabPageRemoteConsole.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageRemoteConsole.Size = new System.Drawing.Size(1075, 529);
             this.tabPageRemoteConsole.TabIndex = 6;
             this.tabPageRemoteConsole.Text = "Remote Console";
             this.tabPageRemoteConsole.UseVisualStyleBackColor = true;
@@ -751,7 +626,7 @@
             this.tabPageHealth.Controls.Add(this.dataGridHealth);
             this.tabPageHealth.Location = new System.Drawing.Point(104, 4);
             this.tabPageHealth.Name = "tabPageHealth";
-            this.tabPageHealth.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageHealth.Size = new System.Drawing.Size(1075, 529);
             this.tabPageHealth.TabIndex = 2;
             this.tabPageHealth.Text = "Grid           Health";
             // 
@@ -887,14 +762,34 @@
             // tabPageTransfer
             // 
             this.tabPageTransfer.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageTransfer.Controls.Add(this.progressBarDownload);
+            this.tabPageTransfer.Controls.Add(this.buttonUpdateDir);
             this.tabPageTransfer.Controls.Add(this.dataGridDirectory);
             this.tabPageTransfer.Controls.Add(this.label16);
             this.tabPageTransfer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPageTransfer.Location = new System.Drawing.Point(104, 4);
             this.tabPageTransfer.Name = "tabPageTransfer";
-            this.tabPageTransfer.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageTransfer.Size = new System.Drawing.Size(1075, 529);
             this.tabPageTransfer.TabIndex = 5;
             this.tabPageTransfer.Text = "File Transfer";
+            // 
+            // progressBarDownload
+            // 
+            this.progressBarDownload.Location = new System.Drawing.Point(20, 470);
+            this.progressBarDownload.Name = "progressBarDownload";
+            this.progressBarDownload.Size = new System.Drawing.Size(966, 40);
+            this.progressBarDownload.TabIndex = 6;
+            this.progressBarDownload.Visible = false;
+            // 
+            // buttonUpdateDir
+            // 
+            this.buttonUpdateDir.Location = new System.Drawing.Point(897, 6);
+            this.buttonUpdateDir.Name = "buttonUpdateDir";
+            this.buttonUpdateDir.Size = new System.Drawing.Size(102, 23);
+            this.buttonUpdateDir.TabIndex = 4;
+            this.buttonUpdateDir.Text = "Update";
+            this.buttonUpdateDir.UseVisualStyleBackColor = true;
+            this.buttonUpdateDir.Click += new System.EventHandler(this.ButtonUpdateDir_Click);
             // 
             // dataGridDirectory
             // 
@@ -917,11 +812,11 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridDirectory.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridDirectory.Location = new System.Drawing.Point(3, 30);
+            this.dataGridDirectory.Location = new System.Drawing.Point(8, 33);
             this.dataGridDirectory.Name = "dataGridDirectory";
             this.dataGridDirectory.ReadOnly = true;
             this.dataGridDirectory.RowHeadersVisible = false;
-            this.dataGridDirectory.Size = new System.Drawing.Size(441, 496);
+            this.dataGridDirectory.Size = new System.Drawing.Size(991, 488);
             this.dataGridDirectory.TabIndex = 3;
             // 
             // ColumnDirName
@@ -949,7 +844,6 @@
             this.ColumnDirDownload.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.ColumnDirDownload.Name = "ColumnDirDownload";
             this.ColumnDirDownload.ReadOnly = true;
-            this.ColumnDirDownload.Visible = false;
             // 
             // ColumnDirDelete
             // 
@@ -977,7 +871,7 @@
             this.tabPageAbout.Controls.Add(this.pictureBox2);
             this.tabPageAbout.Location = new System.Drawing.Point(104, 4);
             this.tabPageAbout.Name = "tabPageAbout";
-            this.tabPageAbout.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageAbout.Size = new System.Drawing.Size(1075, 529);
             this.tabPageAbout.TabIndex = 3;
             this.tabPageAbout.Text = "About";
             // 
@@ -994,7 +888,7 @@
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox4.Location = new System.Drawing.Point(324, 167);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(339, 151);
+            this.groupBox4.Size = new System.Drawing.Size(404, 151);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "About";
@@ -1064,7 +958,7 @@
             this.pictureBox2.Image = global::node_client.Properties.Resources.ctt_logo_300;
             this.pictureBox2.Location = new System.Drawing.Point(3, 8);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1004, 137);
+            this.pictureBox2.Size = new System.Drawing.Size(1069, 137);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -1074,7 +968,7 @@
             this.tabPageSensorStation.Controls.Add(this.textBoxSensorStation);
             this.tabPageSensorStation.Location = new System.Drawing.Point(104, 4);
             this.tabPageSensorStation.Name = "tabPageSensorStation";
-            this.tabPageSensorStation.Size = new System.Drawing.Size(1010, 529);
+            this.tabPageSensorStation.Size = new System.Drawing.Size(1075, 529);
             this.tabPageSensorStation.TabIndex = 7;
             this.tabPageSensorStation.Text = "SenorStation";
             this.tabPageSensorStation.UseVisualStyleBackColor = true;
@@ -1087,12 +981,82 @@
             this.textBoxSensorStation.Size = new System.Drawing.Size(1004, 370);
             this.textBoxSensorStation.TabIndex = 0;
             // 
+            // ColumnDetectionTime
+            // 
+            this.ColumnDetectionTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDetectionTime.FillWeight = 33F;
+            this.ColumnDetectionTime.HeaderText = "Detection Time [Local]";
+            this.ColumnDetectionTime.Name = "ColumnDetectionTime";
+            this.ColumnDetectionTime.ReadOnly = true;
+            // 
+            // ColumnTagId
+            // 
+            this.ColumnTagId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTagId.FillWeight = 33F;
+            this.ColumnTagId.HeaderText = "Tag Id";
+            this.ColumnTagId.Name = "ColumnTagId";
+            this.ColumnTagId.ReadOnly = true;
+            // 
+            // ColumnTagRssi
+            // 
+            this.ColumnTagRssi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTagRssi.FillWeight = 20F;
+            this.ColumnTagRssi.HeaderText = "Signal [dBm]";
+            this.ColumnTagRssi.Name = "ColumnTagRssi";
+            this.ColumnTagRssi.ReadOnly = true;
+            // 
+            // ColumnSetting
+            // 
+            this.ColumnSetting.HeaderText = "Setting";
+            this.ColumnSetting.Name = "ColumnSetting";
+            this.ColumnSetting.ReadOnly = true;
+            // 
+            // ColumnSettingValue
+            // 
+            this.ColumnSettingValue.HeaderText = "Value";
+            this.ColumnSettingValue.Name = "ColumnSettingValue";
+            this.ColumnSettingValue.ReadOnly = true;
+            // 
+            // ColumnSettingUnits
+            // 
+            this.ColumnSettingUnits.HeaderText = "Units";
+            this.ColumnSettingUnits.Name = "ColumnSettingUnits";
+            this.ColumnSettingUnits.ReadOnly = true;
+            // 
+            // ColumnSettingUpdate
+            // 
+            this.ColumnSettingUpdate.FillWeight = 50F;
+            this.ColumnSettingUpdate.HeaderText = "Update";
+            this.ColumnSettingUpdate.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ColumnSettingUpdate.Name = "ColumnSettingUpdate";
+            this.ColumnSettingUpdate.ReadOnly = true;
+            // 
+            // buttonSettingsRefresh
+            // 
+            this.buttonSettingsRefresh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSettingsRefresh.Location = new System.Drawing.Point(659, 478);
+            this.buttonSettingsRefresh.Name = "buttonSettingsRefresh";
+            this.buttonSettingsRefresh.Size = new System.Drawing.Size(202, 40);
+            this.buttonSettingsRefresh.TabIndex = 15;
+            this.buttonSettingsRefresh.Text = "Refresh";
+            this.buttonSettingsRefresh.UseVisualStyleBackColor = true;
+            // 
+            // buttonSettingsSave
+            // 
+            this.buttonSettingsSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSettingsSave.Location = new System.Drawing.Point(865, 478);
+            this.buttonSettingsSave.Name = "buttonSettingsSave";
+            this.buttonSettingsSave.Size = new System.Drawing.Size(202, 40);
+            this.buttonSettingsSave.TabIndex = 16;
+            this.buttonSettingsSave.Text = "Save";
+            this.buttonSettingsSave.UseVisualStyleBackColor = true;
+            // 
             // NodeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1118, 537);
+            this.ClientSize = new System.Drawing.Size(1183, 537);
             this.Controls.Add(this.tabControlMain);
             this.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1108,8 +1072,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBoxLocaleSettingsUpdate.ResumeLayout(false);
-            this.groupBoxLocaleSettingsUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDeviceInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDetections)).EndInit();
@@ -1153,14 +1115,6 @@
         private System.Windows.Forms.DataGridView dataGridSettings;
         private System.Windows.Forms.DataGridView dataGridDetections;
         private System.Windows.Forms.TabPage tabPageTransfer;
-        private System.Windows.Forms.GroupBox groupBoxLocaleSettingsUpdate;
-        private System.Windows.Forms.Button buttonSubmit;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBoxCategory;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBoxSettings;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBoxValue;
         private System.Windows.Forms.DataGridView dataGridHealth;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxNodeSerial;
         private System.Windows.Forms.DataGridViewTextBoxColumn RxLastHealth;
@@ -1189,8 +1143,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSetting;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSettingValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInfoType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInfoValue;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1200,22 +1152,30 @@
         private System.Windows.Forms.Button buttonGetId;
         private System.Windows.Forms.Button buttonDoRelay;
         private System.Windows.Forms.Button buttonGetFix;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetectionTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTagId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTagRssi;
         private System.Windows.Forms.Label labelCompany;
         private System.Windows.Forms.TabPage tabPageRemoteConsole;
         private System.Windows.Forms.CheckBox checkBoxEmulateCrc;
         private System.Windows.Forms.Button buttonEmulate;
         private System.Windows.Forms.TextBox textBoxEmulateTag;
         private System.Windows.Forms.DataGridView dataGridDirectory;
+        private System.Windows.Forms.TabPage tabPageSensorStation;
+        private System.Windows.Forms.TextBox textBoxSensorStation;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDirName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDirSize;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFileModified;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDirDownload;
         private System.Windows.Forms.DataGridViewImageColumn ColumnDirDelete;
-        private System.Windows.Forms.TabPage tabPageSensorStation;
-        private System.Windows.Forms.TextBox textBoxSensorStation;
+        private System.Windows.Forms.Button buttonUpdateDir;
+        private System.Windows.Forms.ProgressBar progressBarDownload;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetectionTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTagId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTagRssi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSetting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSettingValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSettingUnits;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnSettingUpdate;
+        private System.Windows.Forms.Button buttonSettingsRefresh;
+        private System.Windows.Forms.Button buttonSettingsSave;
     }
 }
 

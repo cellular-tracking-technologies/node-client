@@ -29,12 +29,17 @@ namespace Src.LocalConsole {
 
             // 2020-04-03 16:53:12,Beep,6166002a,-28
 
-            DateTime now = DateTime.Parse(detection["time"]).ToLocalTime();
-            string tagId = detection["id"];
-            int rssi = Convert.ToInt16(detection["rssi"]);
+            try {
 
-            this.view.FirstDisplayedScrollingRowIndex = 
-                this.view.Rows.Add(now,tagId, rssi);
+                DateTime now = DateTime.Parse(detection["time"]).ToLocalTime();
+                string tagId = detection["id"];
+                int rssi = Convert.ToInt16(detection["rssi"]);
+
+                this.view.FirstDisplayedScrollingRowIndex =
+                    this.view.Rows.Add(now, tagId, rssi);
+            }catch(Exception ex) {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

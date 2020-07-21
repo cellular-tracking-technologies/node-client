@@ -16,7 +16,9 @@ namespace Src.LocalConsole {
             Dictionary<string, string> dict = parser.GetData();
 
             List<string> basicKeys = new List<string> { "time", "key" };
-
+            /*
+             * Every 
+             */
             if (CommandParser.Verify(dict, basicKeys) == false) {
                 return;
             } else if (dict["key"].Equals("Power")) {
