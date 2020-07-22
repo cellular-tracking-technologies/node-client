@@ -25,7 +25,6 @@ namespace node_client {
         Src.LocalConsole.TagDetections beeps;
         Src.LocalConsole.DeviceInfo info;
         Src.LocalConsole.SettingsManager settings;
-        Src.LocalConsole.SensorStationListener ss;
 
         Src.FileTransfer.NodeDir dir;
 
@@ -34,6 +33,9 @@ namespace node_client {
         public NodeClient() {
             InitializeComponent();
 
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;            
+
             this.serialConsole = new Src.Serial();
             this.consoleDataManager = new Src.LineBuilder();
 
@@ -41,11 +43,10 @@ namespace node_client {
 
             this.beeps = new Src.LocalConsole.TagDetections(dataGridDetections);
             this.info = new Src.LocalConsole.DeviceInfo(dataGridDeviceInfo);
-            this.ss = new Src.LocalConsole.SensorStationListener(textBoxSensorStation);
 
             Dictionary<string, Control> settingControls = new Dictionary<string, Control>() {
                 {"refresh", buttonSettingsRefresh},
-                {"save", buttonSettingsSave}                
+                {"save", buttonSettingsSave}
             };
 
             this.settings = new Src.LocalConsole.SettingsManager(serialConsole, dataGridSettings, settingControls);
@@ -53,7 +54,19 @@ namespace node_client {
 
             this.Icon = Properties.Resources.ctt_logo_icon;
             tabControlMain.DrawItem += new DrawItemEventHandler(TabControlDrawItem);
-           
+            tabControlMain.SelectedIndexChanged += new EventHandler(TabSelectedIndexChanged);
+            tabControlMain.TabPages.RemoveAt(3);
+            tabControlMain.TabPages.RemoveAt(2);
+
+            linkSilabsDriver.Links.Add(new LinkLabel.Link() {
+                LinkData = "https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers"
+            });
+            linkSilabsDriver.LinkClicked += (object sender, LinkLabelLinkClickedEventArgs e) => {
+                System.Diagnostics.Process.Start(e.Link.LinkData as string);
+            };
+
+            InitTasksComboBox();
+
             dir = new Src.FileTransfer.NodeDir(serialConsole, 
                 new Dictionary<string, Control>() {
                     { "table", dataGridDirectory},
@@ -64,6 +77,11 @@ namespace node_client {
             InitAboutTab();
             this.healthManager.Init();                              
         }
+
+        private void TabSelectedIndexChanged(Object sender, EventArgs e) {
+            Console.WriteLine((sender as TabControl).SelectedIndex);
+        }
+
         private void UpdatePortBoxes() {
             this.ComListToComboBox(serialConsole, comboBoxPort1);
             this.ComListToComboBox(serialTransceiver, comboBoxPort2);
@@ -232,7 +250,7 @@ namespace node_client {
             parsers.Add(this.beeps.Parse);
             parsers.Add(this.info.Parse);
             parsers.Add(this.settings.Parse);
-            parsers.Add(this.ss.Parse);
+            parsers.Add(MonitorFirmwareUpdate);
 
             consoleDataManager.Ingest(data, parsers);
         }
@@ -256,17 +274,21 @@ namespace node_client {
 
             }
         }
-        private void ButtonGetId_Click(object sender, EventArgs e) {
-            this.CommandRequest(Src.LocalConsole.DeviceTasks.IdCommand());
+        private void InitTasksComboBox() {
+            comboBoxTasks.DataSource = new BindingSource(new Dictionary<string, string>() {
+                { "SerialNumber", Src.LocalConsole.DeviceTasks.IdCommand()},
+                { "Gps Fix", Src.LocalConsole.DeviceTasks.GpsFixCommand()},
+                { "Health Report", Src.LocalConsole.DeviceTasks.HealthCommand()},
+                { "Relay Beeps", Src.LocalConsole.DeviceTasks.RelayCommand()},
+                { "Dynamics", Src.LocalConsole.DeviceTasks.DynamicsCommand()}, 
+            }, null);
+
+            comboBoxTasks.DisplayMember = "Key";
+            comboBoxTasks.ValueMember = "Value";
+            comboBoxTasks.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-        private void ButtonGetFix_Click(object sender, EventArgs e) {
-            this.CommandRequest(Src.LocalConsole.DeviceTasks.GpsFixCommand());
-        }
-        private void ButtonDoHealth_Click(object sender, EventArgs e) {
-            this.CommandRequest(Src.LocalConsole.DeviceTasks.HealthCommand());
-        }
-        private void ButtonDoRelay_Click(object sender, EventArgs e) {
-            this.CommandRequest(Src.LocalConsole.DeviceTasks.RelayCommand());
+        private void ButtonRequestTask_Click(object sender, EventArgs e) {
+            this.CommandRequest(((KeyValuePair<string, string>)comboBoxTasks.SelectedItem).Value);
         }
         private void CommandRequest(string command) {
             if (String.IsNullOrEmpty(command)) {
@@ -289,7 +311,6 @@ namespace node_client {
                 this.DisplayPortError(this.comboBoxPort2.Text);
             }
         }
-
         private void ButtonEmulate_Click(object sender, EventArgs e) {
             string inputToEmulate = textBoxEmulateTag.Text;
             if (String.IsNullOrWhiteSpace(inputToEmulate)) {
@@ -304,7 +325,43 @@ namespace node_client {
                 this.serialConsole.WriteData(String.Format("tag:{0},{1}{2}", command, tag, Environment.NewLine));
             }
         }
+        private void MonitorFirmwareUpdate(string data) {
+            if (String.IsNullOrEmpty(data)) {
+                return;
+            }else if (String.IsNullOrWhiteSpace(data)) {
+                return;
+            }else if(data.Contains(",Firmware,") == false) {
+                return;
+            }
+
+            // 2020-07-22 16:24:35,Firmware,1,204359,204359
+            Console.WriteLine(data);
+
+            List<string> fields = data.Split(',').ToList();
+
+            Int32 verified = Convert.ToInt32(fields[2]);
+            UInt32 fileLength = Convert.ToUInt32(fields[3]);
+            UInt32 bytesWritten = Convert.ToUInt32(fields[3]);
+
+            if(verified == 0) {
+                MessageBox.Show("Firmware Upload Failed, Please try again.", "Firmware Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else {
+   
+                String message = "Firmware Upload successful. The device will now perform the installation " +
+                    "which can take up to 60 seconds. Once you see tags streaming in the Detections Tab, please" +
+                    " poll the firmware version using the \"SerialNumber\" command to verify the installation " +
+                    "completed successfully.";
+
+                MessageBox.Show(message, "Firmware Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
         private void ButtonFirmware_Click(object sender, EventArgs e) {
+
+            if (this.serialConsole.IsOpen() == false) {
+                this.DisplayPortError(this.comboBoxPort1.Text);
+                return;
+            }
+
             Src.LocalConsole.FileUpload file = new Src.LocalConsole.FileUpload {
                 FileType = "Firmware",
                 Extension = ".firmware",
@@ -336,7 +393,7 @@ namespace node_client {
                 }
             };
 
-            file.Upload(this.serialConsole);
+            file.Upload(this.serialConsole, progressBarFirmware);
         }
         private void TabControlMain_SelectedIndexChanged(object sender, EventArgs e) {
             TabControl tab = sender as TabControl;

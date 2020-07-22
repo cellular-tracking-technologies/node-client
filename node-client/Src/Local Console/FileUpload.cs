@@ -40,7 +40,7 @@ namespace Src.LocalConsole {
             return String.Empty;
         }
 
-        public void Upload(Serial serial) {
+        public void Upload(Serial serial, ProgressBar progress) {
             string file_name = GetFileFromDialog(FileType, Extension);
             bool quit = false;
             if (String.IsNullOrEmpty(file_name)) {
@@ -59,14 +59,28 @@ namespace Src.LocalConsole {
 
             ApplyFilters();
 
+            progress.Minimum = 0;
+            progress.Maximum = FileContents.Length;
+            progress.Value = 0;
+            progress.Visible = true;
+            
+            MethodInvoker updateProgress = new MethodInvoker(() => progress.Value += 1);
+            MethodInvoker hideProgress = new MethodInvoker(() => progress.Visible = false);
+
             Thread upload = new Thread(() => {
                 try {
+
                     PreBuildTask(true);
                     serial.WriteData(Header);
                     Thread.Sleep(2000);
-                    serial.WriteData(FileContents);
-                } finally {
 
+                    foreach(char c in FileContents) {
+                        serial.WriteData(c.ToString());
+                        progress.Invoke(updateProgress);
+                    }
+                    progress.Invoke(hideProgress);
+
+                } finally {
                 }
             });
             upload.Start();

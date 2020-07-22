@@ -151,7 +151,7 @@ namespace LocalConsole.Settings {
             return (Convert.ToUInt32(ms) * 1000).ToString();
         }
         static string FormatOutputVoltage(string input) {
-            return Math.Round((Convert.ToDouble(input) * 100), 2).ToString();
+            return Math.Round((Convert.ToDouble(input) * 1000), 2).ToString();
         }
     }
 }

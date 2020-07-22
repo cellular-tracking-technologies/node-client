@@ -18,6 +18,9 @@ namespace Src.LocalConsole {
         static public string RelayCommand() {
             return "radio:7,1\r\n";
         }
+        static public string DynamicsCommand() {
+            return "acc:9,1\r\n";
+        }
         static public string DisableRadioAndGps(bool disable) {
             if (disable) {
                 return "system:5,1\r\n";

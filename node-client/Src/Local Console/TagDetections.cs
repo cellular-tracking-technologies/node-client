@@ -31,6 +31,12 @@ namespace Src.LocalConsole {
 
             try {
 
+                if (view.Rows.Count > 1000) {
+                    for (int i = 0; i < 900; i++) {
+                        view.Rows.RemoveAt(0);
+                    }
+                }
+
                 DateTime now = DateTime.Parse(detection["time"]).ToLocalTime();
                 string tagId = detection["id"];
                 int rssi = Convert.ToInt16(detection["rssi"]);
